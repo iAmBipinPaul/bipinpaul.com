@@ -1,0 +1,5 @@
+Settings[Keys.Host] = "bipinpaul.com.np";
+Settings[Keys.LinksUseHttps] = true;
+Settings[BlogKeys.Title] = "Bipin Paul";
+Settings[BlogKeys.Description] = "Bipin Paul's Blog";
+Settings[BlogKeys.Intro] = "Freelancer | Developer | ASP .NET Core | Web Guy | I'm still learning and will be learning.";
