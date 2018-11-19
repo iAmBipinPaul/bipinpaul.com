@@ -1,5 +1,5 @@
 Title: Continuous integration and Continuous deployment of Blazor application to GitLab page.
-Published: 11/17/2018
+Published: 7/23/2018
 Tags:
   - JavaScript
   - Blazor
