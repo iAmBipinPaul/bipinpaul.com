@@ -11,7 +11,7 @@ Tags:
 Hi , Everyone\ 
 If you are here and reading this article means that you are already familiar with ASP.NET Core and different technologies associated with the ASP.NET Core platform. If you are not familiar with the ASP.NET core please read some article that will make you familiar with ASP.NET Core. Here is the one that I have written.
 
-> [Is it better to get start with ASP.NET core (ASP.NET 5 old name ) as a new Developer?](https://bipinpaul.com.np/Is-it-better-to-get-start-with-ASP.NET-core-as-a-new-Developer)
+> [Is it better to get start with ASP.NET core (ASP.NET 5 old name ) as a new Developer?](https://bipinpaul.com.np/posts/Is-it-better-to-get-start-with-ASP.NET-core-as-a-new-Developer)
 
 ![Dot net core SDK](images/DotnetCoreSdk.png)
 
