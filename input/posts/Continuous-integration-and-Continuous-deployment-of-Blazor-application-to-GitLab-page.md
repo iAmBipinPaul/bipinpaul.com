@@ -211,6 +211,6 @@ commit the change and GitLab will trigger the build and after building we should
 
 Feel free to comment and suggests changes .
 
-Full source code on [GitLab](https://gitlab.com/iAmBipinPaul/iambipinpaul.gitlab.io)
+Full source code on [GitLab](https://gitlab.com/iAmBipinPaul/Blazor.CICD)
 
 Happy Coding!
