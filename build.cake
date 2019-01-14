@@ -1,8 +1,8 @@
 // The following environment variables need to be set for Publish target:
 // NETLIFY_TOKEN
 
-#tool "nuget:https://api.nuget.org/v3/index.json?package=Wyam&version=1.7.1"
-#addin "nuget:https://api.nuget.org/v3/index.json?package=Cake.Wyam&version=1.7.1"
+#tool "nuget:https://api.nuget.org/v3/index.json?package=Wyam&version=2.0.0"
+#addin "nuget:https://api.nuget.org/v3/index.json?package=Cake.Wyam&version=2.0.0"
 #addin "NetlifySharp"
 
 using NetlifySharp;
@@ -11,7 +11,7 @@ using NetlifySharp;
 // ARGUMENTS
 //////////////////////////////////////////////////////////////////////
 
-var target = Argument("target", "Default");
+var target = Argument("target", "BuildServer");
 
 //////////////////////////////////////////////////////////////////////
 // TASKS
@@ -28,30 +28,10 @@ Task("Build")
         });        
     });
     
-Task("Preview")
-    .Does(() =>
-    {
-        Wyam(new WyamSettings
-        {
-            Recipe = "Blog",
-            Theme = "CleanBlog",
-            UpdatePackages = true,
-            Preview = true,
-            Watch = true
-        });        
-    });
-
-Task("Debug")
-    .Does(() =>
-    {
-        StartProcess("../Wyam/src/clients/Wyam/bin/Debug/net462/wyam.exe",
-            "-a \"../Wyam/tests/integration/Wyam.Examples.Tests/bin/Debug/net462/**/*.dll\" -r \"blog -i\" -t \"../Wyam/themes/Blog/CleanBlog\" -p");
-    });
-
 Task("Netlify")
     .Does(() =>
     {
-       var netlifyToken = EnvironmentVariable("NETLIFY_TOKEN");
+        var netlifyToken = EnvironmentVariable("NETLIFY_TOKEN");
         if(string.IsNullOrEmpty(netlifyToken))
         {
             throw new Exception("Could not get Netlify token environment variable");
@@ -60,18 +40,14 @@ Task("Netlify")
         Information("Deploying output to Netlify");
         var client = new NetlifyClient(netlifyToken);
         client.UpdateSite($"bipinpaul.netlify.com", MakeAbsolute(Directory("./output")).FullPath).SendAsync().Wait();
-
-       
     });
     
 //////////////////////////////////////////////////////////////////////
 // TASK TARGETS
 //////////////////////////////////////////////////////////////////////
-
-Task("Default")
-    .IsDependentOn("Preview");    
+  
     
-Task("AppVeyor")
+Task("BuildServer")
     .IsDependentOn("Build")
     .IsDependentOn("Netlify");
 
