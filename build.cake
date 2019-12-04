@@ -3,7 +3,7 @@
 
 #tool "nuget:https://api.nuget.org/v3/index.json?package=Wyam&version=2.0.0"
 #addin "nuget:https://api.nuget.org/v3/index.json?package=Cake.Wyam&version=2.0.0"
-#addin "NetlifySharp"
+#addin "nuget:https://api.nuget.org/v3/index.json?package=NetlifySharp&version=0.1.0"
 
 using NetlifySharp;
 
