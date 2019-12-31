@@ -7,3 +7,14 @@ nuget.exe
 /*.packages.xml
 /*.wyam.hash
 /*.wyam.dll
+/.vs/bipinpaul.com/v16
+/.tmp
+/build/bin/Debug
+/build/obj/Debug
+/build/obj
+*.exclude
+/.vs/bipinpaul.com/config/applicationhost.config
+/.vs
+/.vscode
+/obj
+/bin/Debug/netcoreapp3.1
