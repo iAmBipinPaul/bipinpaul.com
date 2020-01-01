@@ -5,6 +5,7 @@ Tags:
   - Blazor
   - Aspnetcore
   - Dotnet
+  - webdev
 ---
 
 ### What is Blazor ?
@@ -18,7 +19,7 @@ If you have already up and running blazor application you are good to go along. 
 > Link of official documentation to get started with Blazor\
 > [Get started with Blazor](https://blazor.net/)
 
-We often want  to show some loading  or spinner on UI when our application is making some request to the server, so that users will know that there are some operation going on and need to wait till that operation is complete, We can handle this manually on each time in our code when there is an API can we  can show some loading bar but  There is a better way to do this and ie let it show the spinner automatically when there is ongoing API call and we can do this my adding our own custom HttpMessageHandler and show  spinner  just before sending request and hide that after getting response from the server.
+We often want to show some loading or spinner on UI when our application is making some request to the server, so that users will know that there are some operation going on and need to wait till that operation is complete, We can handle this manually on each time in our code when there is an API call we can show some loading bar but There is a better way to do this and ie let it show the spinner automatically when there is ongoing API call and we can do this my adding our own custom `HttpMessageHandler` and show  spinner just before sending request and hide that after getting response from the server.
 
 
 Steps 
@@ -60,7 +61,7 @@ Here in this Spinner component , I have some css to show the Spinner on top of o
 
 Here our logic is simple when  `IsVisible` will be `true` it will show the spinner and in the case of `false` it will hide.
 
-From our Spinner service when  `OnShow` event will be fired , `ShowSpinner()` method will be called it will make `IsVisible` true same on `OnHide` `HideSpinner()` method will be called and it will make `IsVisible`  `false`.
+From our Spinner service when  `OnShow` event will be fired, `ShowSpinner()` method will be called it will make `IsVisible` `true` same on `OnHide` `HideSpinner()` method will be called and it will make `IsVisible`  `false`.
 
 
 ```
