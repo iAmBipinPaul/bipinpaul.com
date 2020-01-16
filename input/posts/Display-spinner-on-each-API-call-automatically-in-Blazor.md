@@ -1,4 +1,4 @@
-﻿Title: Display spinner on each API call automatically from Blazor
+﻿Title: Display spinner on each API call automatically in Blazor
 Published: 1/02/2020
 Tags:
   - Spinner
@@ -179,8 +179,7 @@ Now our final step is to register our services in startup , here we are register
                 var blazorDisplaySpinnerAutomaticallyHttpMessageHandler = s.GetRequiredService<BlazorDisplaySpinnerAutomaticallyHttpMessageHandler>();
                 var wasmHttpMessageHandlerType = Assembly.Load("WebAssembly.Net.Http").GetType("WebAssembly.Net.Http.HttpClient.WasmHttpMessageHandler");
                 var wasmHttpMessageHandler = (HttpMessageHandler)Activator.CreateInstance(wasmHttpMessageHandlerType);
-                var httpClient = new HttpClient(wasmHttpMessageHandler);
-
+               
                 blazorDisplaySpinnerAutomaticallyHttpMessageHandler.InnerHandler = wasmHttpMessageHandler;
                 var uriHelper = s.GetRequiredService<NavigationManager>();
                 return new HttpClient(blazorDisplaySpinnerAutomaticallyHttpMessageHandler)
@@ -193,8 +192,7 @@ Now our final step is to register our services in startup , here we are register
 
 Now run the application , you should see a spinner ,when application  will make http calls.
 
-![Blazor Spinner ](images/blazor-spinner.gif)
-
+<img src="./images/blazor-spinner.gif" width="100%" height="100%">
 
 We can show that spinner from other components as well  when ever we need to show, we just has to inject `SpinnerService` and call `Show()` and `Hide()` method to show and hide spinner respectively.
 
