@@ -8,6 +8,8 @@ Tags:
   - webdev
 ---
 
+> Update to Blazor 3.2.1 (RTM)
+
 ### What is Blazor ?
 
 Blazor is a free and open-source web framework that enables developers to create web apps using C# and HTML.
@@ -165,29 +167,34 @@ namespace BlazorDisplaySpinnerAutomatically
 
 ```
 
-# Step 5 : Register Services in startup 
+# Step 5 : Register Services
 
 Now our final step is to register our services in startup , here we are registering `SpinnerService` , Our Custom `HttpMessageHandler`  (i.e. `BlazorDisplaySpinnerAutomaticallyHttpMessageHandler`)  and Also we need to register `HttpClient` and pass our custom `HttpMessageHandler` as `InnerHandler`.
 
 ```
- public void ConfigureServices(IServiceCollection services)
+ public class Program
+    {
+        public static async Task Main(string[] args)
         {
-           services.AddScoped<SpinnerService>();
-            services.AddScoped<BlazorDisplaySpinnerAutomaticallyHttpMessageHandler>();
-            services.AddScoped(s =>
+            var builder = WebAssemblyHostBuilder.CreateDefault(args);
+            builder.RootComponents.Add<App>("app");
+
+            builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddScoped<SpinnerService>();
+            builder.Services.AddScoped<BlazorDisplaySpinnerAutomaticallyHttpMessageHandler>();
+            builder.Services.AddScoped(s =>
             {
-                var blazorDisplaySpinnerAutomaticallyHttpMessageHandler = s.GetRequiredService<BlazorDisplaySpinnerAutomaticallyHttpMessageHandler>();
-                var wasmHttpMessageHandlerType = Assembly.Load("WebAssembly.Net.Http").GetType("WebAssembly.Net.Http.HttpClient.WasmHttpMessageHandler");
-                var wasmHttpMessageHandler = (HttpMessageHandler)Activator.CreateInstance(wasmHttpMessageHandlerType);
-               
-                blazorDisplaySpinnerAutomaticallyHttpMessageHandler.InnerHandler = wasmHttpMessageHandler;
+                var accessTokenHandler = s.GetRequiredService<BlazorDisplaySpinnerAutomaticallyHttpMessageHandler>();
+                accessTokenHandler.InnerHandler = new HttpClientHandler();
                 var uriHelper = s.GetRequiredService<NavigationManager>();
-                return new HttpClient(blazorDisplaySpinnerAutomaticallyHttpMessageHandler)
+                return new HttpClient(accessTokenHandler)
                 {
                     BaseAddress = new Uri(uriHelper.BaseUri)
                 };
             });
+            await builder.Build().RunAsync();
         }
+    }
 ```
 
 Now run the application , you should see a spinner ,when application  will make http calls.
