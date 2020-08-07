@@ -12,7 +12,7 @@ namespace bipinpaul.com
             var netlifyToken = System.Environment.GetEnvironmentVariable("NETLIFY_TOKEN");
             if (string.IsNullOrWhiteSpace(netlifyToken))
             {
-                throw new Exception("NETLIFY_TOKEN is Required");
+               throw new Exception("NETLIFY_TOKEN is Required");
             }
             await Bootstrapper
                 .Factory
