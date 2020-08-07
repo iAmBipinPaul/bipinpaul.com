@@ -37,7 +37,7 @@ Steps
 
 Spinner Service class exposes two methods and two event, which  will work as a communication channel  between other Components (`MainLayout`) and Spinner component
 
-```
+```csharp
 public class SpinnerService
 	{
 		public event Action OnShow;
@@ -66,7 +66,7 @@ Here our logic is simple when  `IsVisible` will be `true` it will show the spinn
 From our Spinner service when  `OnShow` event will be fired, `ShowSpinner()` method will be called it will make `IsVisible` `true` same on `OnHide` `HideSpinner()` method will be called and it will make `IsVisible`  `false`.
 
 
-```
+```html
 @using Faso.Blazor.SpinKit
 @inject SpinnerService SpinnerService
 
@@ -118,7 +118,7 @@ Here in our custom `HttpMessageHandler` we are injecting `SpinnerService` so tha
 
 
 
-```
+```csharp
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -148,7 +148,7 @@ namespace BlazorDisplaySpinnerAutomatically
 
 `MainLayout` is component which will be rendered for each component so we will  add our `Spinner` component on our `MainLayout` Component.
 
-```
+```html
 <Spinner></Spinner>
 
 <div class="sidebar">
@@ -171,7 +171,7 @@ namespace BlazorDisplaySpinnerAutomatically
 
 Now our final step is to register our services in startup , here we are registering `SpinnerService` , Our Custom `HttpMessageHandler`  (i.e. `BlazorDisplaySpinnerAutomaticallyHttpMessageHandler`)  and Also we need to register `HttpClient` and pass our custom `HttpMessageHandler` as `InnerHandler`.
 
-```
+```csharp
  public class Program
     {
         public static async Task Main(string[] args)
@@ -199,7 +199,7 @@ Now our final step is to register our services in startup , here we are register
 
 Now run the application , you should see a spinner ,when application  will make http calls.
 
-<img src="./images/blazor-spinner.gif" width="100%" height="100%">
+<img src="./images/blazor-spinner.gif" class="img-fluid">
 
 We can show that spinner from other components as well  when ever we need to show, we just has to inject `SpinnerService` and call `Show()` and `Hide()` method to show and hide spinner respectively.
 

@@ -21,7 +21,7 @@ In order to work with cake we need to have cake build file, normally it’s buil
 
 Example   
 
-``` 
+```csharp
 Task("Restore")
     .Does(() =>
 {
@@ -58,7 +58,7 @@ I have one seed project that seeds the database with 100 person. It has a class 
  
 Method that seedes the database.
  
-``` 
+```csharp 
 namespace AspNetCoreDevOps.Seeder
 {
     public class Data
@@ -83,7 +83,7 @@ For testing I have two project `AspNetCoreDevOps.Tests.Core` and `AspNetCoreDevO
 
 `AspNetCoreDevOps.Tests.Core` has class BaseIntegrationTests.cs which handles creation and seeding of database before starting a test case and deleting the database after finishing a test case. 
  
-``` 
+```csharp
 namespace AspNetCoreDevOps.Tests.Core
 {
     public abstract class BaseIntegrationTests
@@ -131,7 +131,7 @@ Here `setup` method will create the database and seed the initial data and `Tear
  
 The other project `AspNetCoreDevOps.Controllers.Tests` has class BaseControllerTests.cs that creates host server, test server and a test client for testing. 
 
-``` 
+```csharp 
 namespace AspNetCoreDevOps.Controllers.Tests
 {
     public class BaseControllerTests : BaseIntegrationTests
@@ -163,7 +163,7 @@ Here we have one HomeControllerTests class that inherits from  BaseControllerTes
 SetUp() method calls the base class to prepare the database, test server and client.
 GetPeopleSucessFullyAsync() calls the Api to get the list of people and compare it to the expected value. 
  
-```
+```csharp
  namespace AspNetCoreDevOps.Controllers.Tests.IntegrationTests
 {
     [TestFixture]
@@ -194,7 +194,7 @@ GetPeopleSucessFullyAsync() calls the Api to get the list of people and compare 
 ``` 
  
 We have one docker compose file which pulls and run the postgreSQL image.
-```
+```yml
 version: '3'
 
 services:
@@ -211,7 +211,7 @@ services:
 The test use postgreSQL as database so we are testing here against real database. 
 
 We also have another dockerfile that builds multi part image for our api project. 
-``` 
+```yml
 FROM microsoft/dotnet:2.2.100-sdk-alpine3.8 AS buildimg
 WORKDIR /app
 COPY . .
@@ -258,7 +258,7 @@ We now have our cake config file, so we can move to creating build.cake file whi
 > For the simplicity I have used path.cake and projectInfo.cake which have static class, method and variable that provides some basic information like solution name, which Docker hub repository to push and others. We can do this in main build.cake file as well. 
  
 path.cake  
-```
+```csharp
 
 public static class Paths
 {
@@ -274,7 +274,7 @@ public static FilePath Combine(DirectoryPath directory, FilePath file)
 ``` 
  
 projectInfo.cake  
-``` 
+```csharp
 public static class Docker
 {
     public static string  Username ="iambipinpaul";
@@ -285,7 +285,7 @@ public static class Docker
 Our buid.cake file builds the solution, test it and on success it push the image to the docker hub. 
  
 On the first line we are referencing our helpers cake files from where we will get project/solution to build. We are also adding docker addon so that we can use docker cli in our cake build file . 
-``` 
+```csharp
 #load cake/paths.cake  
 #load cake/projectInfo.cake  
 #addin "Cake.Docker  
@@ -293,7 +293,7 @@ On the first line we are referencing our helpers cake files from where we will g
  
 I’m tagging the docker images based on the branch and build id. So we need to get the branch from the build server but different server has different way to get the branch and build id. Lucky, it does provide the wrapper for all the major CI servers  
  
-``` 
+```csharp 
 var buildId ="";
 var branch="";
 if(BuildSystem.TFBuild.IsRunningOnVSTS)
@@ -320,14 +320,14 @@ if(string.IsNullOrEmpty(buildId))
 We have two variable here, buildId and branch, at time of writing this post there was no wrapper available for the Github Actions. So, I have hardcoded branch and buildId.Remaining part of the file contains cake task that builds and tests. It also builds the docker and push it to docker hub. 
  
 >  We can use environment variable in our cake file like this. 
-```
+```csharp
 var dockerPassword = EnvironmentVariable("DOCKER_PASSWORD"); 
 here we are passing the envornment varialbe name “DOCKER_PASSWORD” and it assign this to dokcerPassword  varaiable.
 ``` 
  
 So our complete build.cake looks like this. 
  
-``` 
+```csharp 
 #load cake/paths.cake 
 #load cake/projectInfo.cake  
 #addin "Cake.Docker"
@@ -435,7 +435,7 @@ RunTarget(target);
 ### Now to run this project on CI server we need to have separate yml file related to server that will tell the server which  service it needs and how to execute the cake build. 
  
 ## For the Travis CI (`.travis.yml`) 
-``` 
+```yml 
 dist: xenial 
 sudo: required 
 language: csharp 
@@ -456,7 +456,7 @@ dotnet cake build.cake
 ``` 
 ## For the AppVeyor (`.appveyor.yml`) 
  
-``` 
+```yml
 version: '1.0.{build}' 
 image: ubuntu 
 environment: 
@@ -483,7 +483,7 @@ deploy: off
 At the time of writing this post .net core 2.2 is not pre-installed on the appveyor but project is targetting the .net core 2.2 so I had to install this manually. Appveyor had 2.1 installed and since global tools is supported 2.1 on wards, we don’t have to add global tolls to the path. 
  
 ## For the Azure Pipline (`.appveyor.yml`)  
-```
+```yml
 pool:
    vmImage: 'Ubuntu 16.04'   
 variables:

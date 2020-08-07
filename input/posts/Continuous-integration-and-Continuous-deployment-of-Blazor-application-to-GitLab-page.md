@@ -27,7 +27,8 @@ When you will host your blazor application on your GitLab or GitHub , It will tr
 
 So basically when running dotnet cli to generate build file it will also copy everything from wwwroot folder to the dist , so we will create 404.html file in wwwroot folder of our project, with the following content so that it will copy that to dist folder when running dotnet cli for publish.
 
-```<!DOCTYPE html>
+```html
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -70,11 +71,12 @@ So basically when running dotnet cli to generate build file it will also copy ev
 
 As I mentioned before we also have to modify our index.html file. Add following JavaScript in our index.html file just below the
 
-```
+```html
 <app>Loading.. </app>
 ```
 
-```<!-- Start Single Page Apps for GitHub/GitLab Pages -->
+```html
+<!-- Start Single Page Apps for GitHub/GitLab Pages -->
     <script type="text/javascript">
         // Single Page Apps for GitHub/GitLab Pages
         // https://github.com/rafrex/spa-github-pages
@@ -113,7 +115,7 @@ Now everything configured , our file structure should be as shown in the image b
 
 after modifying our index.html file, index.html should be like this.
 
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -173,7 +175,7 @@ Till now we were just configuring our blazor application so that ,if we will run
 
 now we need one file that will tell GitLab build runner to perform build , deploy , tests and all. File name should be **.gitlab-ci.yml*** and place this file at root level of solution folder and save the file with the following content.
 
-```
+```yml
 image:  microsoft/dotnet:2.1.302-sdk
 
 before_script:

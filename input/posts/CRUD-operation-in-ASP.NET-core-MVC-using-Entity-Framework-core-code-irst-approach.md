@@ -21,7 +21,7 @@ First Open Visual Studio 2015 ,click on new project and under visual c# section 
 
 Create a Folder name Models and add new class Student.cs with property Id, name and RegistrationNumber as shown in the below code.
 
-```
+```csharp
 public class Student
 {
 public int ID { get; set; }
@@ -38,7 +38,7 @@ after creating a model we have to create DbContext to so that we can save that t
 
 Create a new class with name StudentDBContext.cs , Keep in mind that Context is necessary for in the name we have to Context Keyword while giving a name to the Context class . and that Context class should be drived form DbContext class.
 
-```
+```csharp
 using Microsoft.EntityFrameworkCore;
 namespace CURD_OPERATION.Models
 {
@@ -56,7 +56,7 @@ Now open the Project.json file and we need to add the few Dependencies to the fi
 
 Depeendecies Section
 
-```
+```json
 "Microsoft.EntityFrameworkCore.SqlServer": "1.0.1",
 "Microsoft.EntityFrameworkCore.SqlServer.Design": {
 "version": "1.0.1",
@@ -69,7 +69,7 @@ Depeendecies Section
 ```
 Tools section
 
-```
+```json
 "Microsoft.EntityFrameworkCore.Tools": "1.0.0-preview2-final"
 ```
 
@@ -77,7 +77,7 @@ After this we need to add the Entity Framework and and StudentDBContext.cs file 
 ```public void ConfigureServices(IServiceCollection services)```
  as shown below.
 
- ```
+ ```csharp
  public void ConfigureServices(IServiceCollection services)
 {
 // Add framework services.
@@ -92,7 +92,7 @@ Now after all this we have to execute some entity framework core commands to add
 
 till now we have created database and configured that in our database but we haven't added anything that will perform CURD operation lets do some task so that we can we can perform the CURD operation. in the controller folder open the HomeController.cs and create a constructor using which we can inject the StudentDBContext so that we can work with the data and same that to the database and also add some IActionResult method with will return the view ,
 
-```
+```csharp
 namespace CURD_OPERATION.Controllers
 {
 public class HomeController : Controller
@@ -165,7 +165,7 @@ return View();
 After this we need to create View for each IActionResult Method in the folder `Views/Home` .
 View for `AddStudent()` method.
 
-```
+```html
 @model CURD_OPERATION.Models.Student
 @{
 ViewData["Title"] = "Add Student";
@@ -190,7 +190,7 @@ ViewData["Title"] = "Add Student";
 
 View for `DeleteStudent()` method
 
-```
+```html
 @model CURD_OPERATION.Models.Student
 <div>
 <center>
@@ -205,7 +205,7 @@ View for `DeleteStudent()` method
 
 View for `EditStudent()` method
 
-```
+```html
 @model CURD_OPERATION.Models.Student
 @*
 For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
@@ -228,7 +228,7 @@ For more information on enabling MVC for empty projects, visit http://go.microso
 ```
 View for `ViewStudent()` method
 
-```
+```html
 @model IEnumerable<CURD_OPERATION.Models.Student>
 @*
 For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
@@ -266,7 +266,7 @@ class="btn btn-info">
 ```
 After this I configured my Default Route in Startup.cs file. default controller as Home and Default action as ViewStudent so that while running the app it will open ViewStudent Section.
 
-```
+```csharp
 app.UseMvc(routes =>
 {
 routes.MapRoute(

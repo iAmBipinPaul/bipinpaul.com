@@ -1,20 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="build\**" />
-    <Compile Remove="output\**" />
-    <Compile Remove="tools\**" />
-    <EmbeddedResource Remove="build\**" />
-    <EmbeddedResource Remove="output\**" />
-    <EmbeddedResource Remove="tools\**" />
-    <None Remove="build\**" />
-    <None Remove="output\**" />
-    <None Remove="tools\**" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Statiq.Web" Version="1.0.0-beta.2" />
+	</ItemGroup>
 
 </Project>

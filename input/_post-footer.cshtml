@@ -1,4 +1,7 @@
-<meta property="og:title" content="@Model.String(BlogKeys.Title)"/>
+@model IDocument
+
+
+<meta property="og:title" content="@Model.GetString(WebKeys.Title)" />
 <script src="https://utteranc.es/client.js"
         repo="iambipinpaul/bipinpaul.com"
         issue-term="og:title"
