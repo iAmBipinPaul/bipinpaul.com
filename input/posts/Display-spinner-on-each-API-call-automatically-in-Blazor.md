@@ -8,7 +8,7 @@ Tags:
   - webdev
 ---
 
-> Update to Blazor 3.2.1 (RTM)
+> Update to .NET 5 
 
 ### What is Blazor ?
 
