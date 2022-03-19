@@ -10,16 +10,16 @@ namespace bipinpaul.com
         public static async Task<int> Main(string[] args)
         {
             var netlifyToken = System.Environment.GetEnvironmentVariable("NETLIFY_TOKEN");
-            if (string.IsNullOrWhiteSpace(netlifyToken))
-            {
-               throw new Exception("NETLIFY_TOKEN is Required");
-            }
+            // if (string.IsNullOrWhiteSpace(netlifyToken))
+            // {
+            //    throw new Exception("NETLIFY_TOKEN is Required");
+            // }
             await Bootstrapper
                 .Factory
                 .CreateWeb(args)
-                .DeployToNetlify(
-                    "bipinpaul.netlify.com", netlifyToken
-                )
+                // .DeployToNetlify(
+                //     "bipinpaul.netlify.com", netlifyToken
+                // )
                 .RunAsync();
             return 0;
         }
