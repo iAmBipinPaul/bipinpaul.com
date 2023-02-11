@@ -1,13 +1,16 @@
-// Styling for the footer
 footer {
-  padding: 50px 0 65px;
+  padding: 1.25rem 0;
+  line-height: $line-height-sm;
+
+  p {
+    margin-top: 0;
+    margin-bottom: $paragraph-margin-bottom;
+  }
+
   .list-inline {
     margin: 0;
     padding: 0;
   }
-  .copyright {
-    font-size: 14px;
-    margin-bottom: 0;
-    text-align: center;
-  }
+
+  @import "copyright";
 }
