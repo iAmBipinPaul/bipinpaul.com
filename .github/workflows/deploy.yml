@@ -1,17 +1,24 @@
-name: Deploy Site
 on: [push]
 
 jobs:
-  build:
-    runs-on: windows-latest
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    name: Publish to Cloudflare Pages
     steps:
-    - uses: actions/checkout@master
-      with:
-        submodules: recursive
-    - uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '7.0.102' # SDK Version to use.
-    - run: dotnet run -- deploy
-      env:
-        NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-       
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Run a build step here if your project requires
+      - name: buidl
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '3.1.100' # SDK Version to use.
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: YOUR_ACCOUNT_ID
+          projectName: YOUR_PROJECT_NAME
+          directory: YOUR_ASSET_DIRECTORY
