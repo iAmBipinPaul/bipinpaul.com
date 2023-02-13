@@ -2,3 +2,4 @@ Host: bipinpaul.com
 LinksUseHttps: true
 SiteTitle: Bipin Paul
 Description: Bipin Paul's Blog
+GenerateSearchIndex: true
