@@ -1,3 +1,4 @@
+
 on: [push]
 
 jobs:
@@ -10,15 +11,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      # Run a build step here if your project requires
-      - name: buidl
-      - uses: actions/setup-dotnet@v1
+        
+      - name: dotnet build
+        uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '3.1.100' # SDK Version to use.
+      - run: dotnet run
+      
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: YOUR_ACCOUNT_ID
-          projectName: YOUR_PROJECT_NAME
-          directory: YOUR_ASSET_DIRECTORY
+          accountId: ${{ secrets.YOUR_ACCOUNT_ID }}
+          projectName: ${{ secrets.YOUR_PROJECT_NAME }}
+          directory: ${{ secrets.YOUR_ASSET_DIRECTORY }}
