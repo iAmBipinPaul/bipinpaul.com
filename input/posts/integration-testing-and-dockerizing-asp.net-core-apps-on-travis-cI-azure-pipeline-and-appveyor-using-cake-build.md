@@ -500,8 +500,7 @@ On azure pipeline, at the time of writing this post there was no pre installed v
  
 > On our local machine we don’t have to add that to the path as per the current limitation we have to close the cmd and open again to add that to the path automatically but we can not do that on ci server so we have to add that manually to that path. 
  
-source code.
-[https://github.com/iAmBipinPaul/AspNetCoreDevOps/](https://github.com/iAmBipinPaul/AspNetCoreDevOps/)
+source code  [AspNetCoreDevOps](https://iambip.in/AspNetCoreDevOps)
  
 Thank you !\
 Happy Coding ! 
