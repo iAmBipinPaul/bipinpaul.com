@@ -210,6 +210,6 @@ Refrence Links
 
 Feel free to comment and suggests changes .
 
-Full source code on [iAmBipinPaul/BlazorDisplaySpinnerAutomatically](https://github.com/iAmBipinPaul/BlazorDisplaySpinnerAutomatically)
+Full source code [BlazorDisplaySpinnerAutomatically](https://iambip.in/BlazorDisplaySpinnerAutomatically)
 
 Happy Coding!
