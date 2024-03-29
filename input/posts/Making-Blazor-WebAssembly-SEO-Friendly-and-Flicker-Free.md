@@ -306,7 +306,7 @@ The following GIF demonstrates the final outcome of the steps described in this 
 ![Demo](images/Making-Blazor-WebAssembly-SEO-Friendly-and-Flicker-Free.gif)
 
 
-Source Code: [GitHub - AditiKraft/Blazor.Seo.Friendly.FlickerFree](https://github.com/AditiKraft/Blazor.Seo.Friendly.FlickerFree)
+Source Code: [GitHub - AditiKraft/Blazor.Seo.Friendly.FlickerFree](https://iambip.in/Blazor.Seo.Friendly.FlickerFree)
 
 ## References
 
