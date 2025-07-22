@@ -1,0 +1,173 @@
+﻿@using BlazorStatic
+@using System.Globalization
+@using BlazorStatic.Services
+@inject BlazorStaticContentService<BlogFrontMatter> blazorStaticContentService
+
+<article class="mx-auto max-w-6xl">
+    <!-- Compact Header -->
+    <header class="border-b border-gray-700 pb-6 mb-8">
+        <div class="space-y-4">
+            <!-- Date and Reading Time -->
+            <div class="flex items-center justify-between text-sm">
+                <time datetime="@post.FrontMatter.Published.ToString("yyyy-MM-ddTHH:mm:ss.fffK", CultureInfo.InvariantCulture)"
+                      class="text-gray-400 font-medium">
+                    @post.FrontMatter.Published.ToString("MMMM d, yyyy", new CultureInfo("en-US"))
+                </time>
+            </div>
+
+            <!-- Title -->
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+                @post.FrontMatter.Title
+            </h1>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2">
+                @foreach (var tag in post.FrontMatter.Tags)
+                {
+                    <a class="skill-tag text-xs" href="@blazorStaticContentService.Options.Tags.TagsPageUrl/@tag">
+                        @tag
+                    </a>
+                }
+            </div>
+
+            <!-- Author Section & Quick Actions - Combined on same line -->
+            <div class="flex items-center justify-between pt-2">
+                <!-- Left side: Author Info -->
+                <div class="flex items-center space-x-4">
+                    @foreach (var author in post.FrontMatter.Authors)
+                    {
+                        <div class="flex items-center space-x-3">                          
+                            <!-- Author info -->
+                            <div class="flex items-center space-x-3">
+                                <span class="text-sm font-medium text-gray-300">@author.Name</span>
+
+                                <!-- Social links -->
+                                <div class="flex items-center space-x-2">
+                                    @if (!string.IsNullOrWhiteSpace(author.XUserName))
+                                    {
+                                        <a target="_blank" rel="noopener noreferrer"
+                                           href="https://x.com/@author.XUserName"
+                                           class="text-gray-400 hover:text-primary-400 transition-colors"
+                                           title="@author.Name on X">
+                                            <Svg SizeClasses="w-4 h-4" Icon="Svg.Icons.X" />
+                                        </a>
+                                    }
+                                    @if (!string.IsNullOrWhiteSpace(author.GitHubUserName))
+                                    {
+                                        <a target="_blank" rel="noopener noreferrer"
+                                           href="https://github.com/@author.GitHubUserName"
+                                           class="text-gray-400 hover:text-primary-400 transition-colors"
+                                           title="@author.Name on GitHub">
+                                            <Svg SizeClasses="w-4 h-4" Icon="Svg.Icons.Github" />
+                                        </a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <!-- Right side: Quick Actions -->
+                <div class="flex items-center space-x-4">
+                    <a target="_blank" rel="noopener noreferrer"
+                       href="@($"{WebsiteKeys.BlogPostStorageAddress}/{FileName}")"
+                       class="flex items-center space-x-2 text-sm text-gray-400 hover:text-primary-400 transition-colors">
+                        
+                        <Svg SizeClasses="w-4 h-4" Icon="Svg.Icons.Github" />
+                        <span>Edit on GitHub</span>
+                    </a>
+                    <a href=""
+                       class="flex items-center space-x-2 text-sm text-gray-400 hover:text-primary-400 transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                        </svg>
+                        <span>Back to blog</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content - Full width since sidebar is removed -->
+    <div class="max-w-none">
+        <main>
+            <div class="prose prose-invert prose-lg max-w-none">
+                <!-- Enhanced prose styling for better readability -->
+                <div class="blog-content">
+                    @((MarkupString)post.HtmlContent)
+                </div>
+            </div>         
+        </main>
+    </div>
+</article>
+
+<style>
+    /* Enhanced blog content styling */
+    .blog-content {
+        line-height: 1.8;
+    }
+
+        .blog-content h2 {
+            @@apply text-2xl font-bold text-foreground mt-12 mb-6;
+            scroll-margin-top: 100px; /* For smooth scrolling to headings */
+        }
+
+        .blog-content h3 {
+            @@apply text-xl font-semibold text-foreground mt-8 mb-4;
+            scroll-margin-top: 100px;
+        }
+
+        .blog-content p {
+            @@apply mb-6 text-gray-300 leading-relaxed;
+        }
+
+        .blog-content code {
+            @@apply bg-gray-700 text-sage-400 px-2 py-1 rounded text-sm;
+        }
+
+        .blog-content pre {
+            @@apply bg-gray-800 border border-gray-700 rounded-lg p-6 overflow-x-auto my-8;
+        }
+
+            .blog-content pre code {
+                @@apply bg-transparent p-0;
+            }
+
+        .blog-content blockquote {
+            @@apply border-l-4 border-primary-500 pl-6 italic text-gray-300 my-8;
+        }
+
+        .blog-content ul, .blog-content ol {
+            @@apply mb-6 pl-6;
+        }
+
+        .blog-content li {
+            @@apply mb-2 text-gray-300;
+        }
+
+        .blog-content a {
+            @@apply text-primary-400 hover:text-primary-300 underline transition-colors;
+        }
+
+    /* Responsive adjustments for author/actions line */
+    @@media (max-width: 768px) {
+        /* Stack author and actions on mobile */
+        .author-actions-container
+
+    {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .quick-actions-mobile {
+        padding-left: 2.75rem; /* Align with author name */
+    }
+
+    }
+</style>
+
+@code {
+    [Parameter] public string? FileName { get; set; }
+    [Parameter] public Post<BlogFrontMatter>? post { get; set; }
+}

@@ -1,18 +1,44 @@
-﻿using System.Threading.Tasks;
-using Statiq.App;
-using Statiq.Web;
+using BlazorStatic;
+using bipinpaul.com.Components;
 
-namespace bipinpaul.com
+var builder = WebApplication.CreateBuilder(args);
+
+builder.WebHost.UseStaticWebAssets();
+
+builder.Services.AddBlazorStaticService(opt =>
 {
-    class Program
-    {
-        public static async Task<int> Main(string[] args)
-        {
-            await Bootstrapper
-                .Factory
-                .CreateWeb(args)
-                .RunAsync();
-            return 0;
-        }
-    }
+    //opt. //check to change the defaults
+}
+).AddBlazorStaticContentService<BlogFrontMatter>();
+
+builder.Services.AddRazorComponents();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Error", createScopeForErrors: true);
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+
+app.UseStaticFiles();
+app.UseAntiforgery();
+
+app.MapRazorComponents<App>();
+
+app.UseBlazorStaticGenerator(shutdownApp: !app.Environment.IsDevelopment());
+
+app.Run();
+
+public static class WebsiteKeys
+{
+    public const string GitHubRepo = "https://github.com/iAmBipinPaul/bipinpaul.com";
+    public const string X = "https://x.com/iAmBipinPaul";
+    public const string Title = "Bipin Paul";
+    public const string BlogPostStorageAddress = $"{GitHubRepo}/tree/main/Content/Blog";
+    public const string BlogLead = "A personal blog sharing insights and experiences.";
 }
