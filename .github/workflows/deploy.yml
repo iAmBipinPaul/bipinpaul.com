@@ -2,6 +2,10 @@
 on:
   push:
     branches: [ master ]
+env:
+  ASPNETCORE_ENVIRONMENT: Production
+  WEBAPP_PATH: ./
+  WEBAPP_CSPROJ: bipinpaul.com.csproj
 
 jobs:
   publish:
@@ -12,14 +16,15 @@ jobs:
     name: Publish to Cloudflare Pages
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          submodules: recursive
+        uses: actions/checkout@v5
       - name: dotnet build
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '3.1.100' # SDK Version to use.
-      - run: dotnet run
+          dotnet-version:  '9.0.x' # SDK Version to use.
+
+      - run: rm  ${{ env.WEBAPP_PATH }}Properties/launchSettings.json
+      - run: touch ${{ env.WEBAPP_PATH }}/wwwroot/.nojekyll #folder starting with _ are handled as jekyll. This file will prevent that.  
+      - run: dotnet run --project ${{ env.WEBAPP_PATH }}${{env.WEBAPP_CSPROJ}}  --configuration Release
       
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
