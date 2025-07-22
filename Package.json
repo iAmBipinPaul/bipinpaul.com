@@ -1,0 +1,15 @@
+{
+  "name": "blazor-app",
+  "version": "1.0.0",
+  "description": "Blazor app with Tailwind CSS",
+  "scripts": {
+    "build-css": "tailwindcss -i ./wwwroot/app.css -o ./wwwroot/app.min.css --minify",
+    "watch-css": "tailwindcss -i ./wwwroot/app.css -o ./wwwroot/app.min.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8.4.0",
+    "autoprefixer": "^10.4.0",
+    "@tailwindcss/typography": "^0.5.0"
+  }
+}

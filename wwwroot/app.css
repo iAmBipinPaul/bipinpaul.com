@@ -1,0 +1,77 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Custom Properties */
+:root {
+    --color-primary: #0CAC5C;
+    --color-primary-light: #66D4A3;
+    --color-background: #2D2D2D;
+    --color-foreground: #FFFFFF;
+    --color-foreground-secondary: #F5F5F5;
+    --color-gray-medium: #474747;
+    /* New eye-friendly greens for dark theme */
+    --color-sage-green: #7FB069;
+    --color-sage-light: #8FA68F;
+    --color-teal-green: #66B2B2;
+    --color-sage-gray: #6B8F71;
+}
+
+/* Base Styles */
+body {
+    background-color: #2D2D2D;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+}
+
+/* Custom Component Styles */
+@layer components {
+    .btn-primary {
+        @apply bg-primary-500 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-primary-600;
+    }
+
+    .btn-secondary {
+        @apply bg-gray-700 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-gray-600;
+    }
+
+    .card {
+        @apply bg-gray-700 rounded-lg p-6 shadow-lg border border-gray-600;
+    }
+
+    /* Skill Tag Variations */
+    .skill-tag {
+        @apply inline-block px-3 py-1 text-sm font-medium rounded-full m-0.5 transition-colors duration-200;
+        background-color: #7FB069; /* Soft olive green - most recommended */
+        color: #1F1F1F; /* Dark text for excellent contrast */
+    }
+
+        .skill-tag:hover {
+            background-color: #8FA68F; /* Slightly lighter on hover */
+        }
+
+    .skill-tag-teal {
+        @apply inline-block px-3 py-1 text-sm font-medium rounded-full m-0.5 transition-colors duration-200;
+        background-color: #66B2B2; /* Teal-green */
+        color: #1F1F1F;
+    }
+
+        .skill-tag-teal:hover {
+            background-color: #7CB8B8;
+        }
+
+    .skill-tag-sage {
+        @apply inline-block px-3 py-1 text-sm font-medium rounded-full m-0.5 transition-colors duration-200;
+        background-color: #6B8F71; /* Sage green with gray undertones */
+        color: #FFFFFF; /* White text for this darker shade */
+    }
+
+        .skill-tag-sage:hover {
+            background-color: #7A9B7A;
+        }
+
+    .skill-tag-secondary {
+        @apply inline-block px-3 py-1 text-sm font-medium rounded-full m-0.5;
+        background-color: rgba(71, 71, 71, 0.9);
+        color: white;
+    }
+}
