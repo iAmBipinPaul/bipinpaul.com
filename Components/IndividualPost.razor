@@ -3,7 +3,6 @@
 @using BlazorStatic.Services
 @using System.Text.RegularExpressions
 @inject BlazorStaticContentService<BlogFrontMatter> blazorStaticContentService
-@inject NavigationManager NavigationManager
 
 <HeadContent>
     @if (post is not null)
@@ -20,7 +19,7 @@
         <meta property="og:type" content="article" />
         <meta property="og:title" content="@post.FrontMatter.Title" />
         <meta property="og:description" content="@post.FrontMatter.Lead" />
-        <meta property="og:url" content="@NavigationManager.Uri" />
+        <meta property="og:url" content="@((WebsiteKeys.BlogPostUrl + "/" + post.Url))" />
         @if (!string.IsNullOrEmpty(absoluteImageUrl))
         {
             <meta property="og:image" content="@absoluteImageUrl" />
@@ -113,7 +112,7 @@
                 <!-- Right side: Quick Actions -->
                 <div class="flex items-center space-x-4">
                     <a target="_blank" rel="noopener noreferrer"
-                       href="@($"{WebsiteKeys.BlogPostStorageAddress}/{FileName}")"
+                       href="@($"{WebsiteKeys.BlogPostStorageAddress}/{FileName}.md")"
                        class="flex items-center space-x-2 text-sm text-gray-400 hover:text-primary-400 transition-colors">
 
                         <Svg SizeClasses="w-4 h-4" Icon="Svg.Icons.Github" />
