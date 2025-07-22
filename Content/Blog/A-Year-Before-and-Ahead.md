@@ -11,7 +11,7 @@ authors:
 
 With new year on the corner, everyone is writing and planning a roadmap for their next year. I have also decided to review 2017 and plan about 2018. Before this, I was not planning and thinking about what to do in the up-coming next year.
 
-![A Year ahead and before](media/YearInREview.png)
+![A Year ahead and before](media/YearInReview.png)
 
 Well, overall my 2017 was good. I did so many things. When I look back, it looks like 2017 might be a better than it was, just with some more effort and tendency to do more.
 
