@@ -1,7 +1,50 @@
 ﻿@using BlazorStatic
 @using System.Globalization
 @using BlazorStatic.Services
+@using System.Text.RegularExpressions
 @inject BlazorStaticContentService<BlogFrontMatter> blazorStaticContentService
+@inject NavigationManager NavigationManager
+
+<HeadContent>
+    @if (post is not null)
+    {
+        var firstImageUrl = ExtractFirstImageUrl(post.HtmlContent);
+        var absoluteImageUrl = !string.IsNullOrEmpty(firstImageUrl) ? (WebsiteKeys.BlogPostUrl+firstImageUrl).ToString() : null;
+
+        <title>@post.FrontMatter.Title</title>
+        <meta name="description" content="@post.FrontMatter.Lead" />
+        <meta name="keywords" content="@string.Join(", ", post.FrontMatter.Tags)" />
+        <meta name="author" content="@string.Join(", ", post.FrontMatter.Authors.Select(a => a.Name))" />
+         
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="@post.FrontMatter.Title" />
+        <meta property="og:description" content="@post.FrontMatter.Lead" />
+        <meta property="og:url" content="@NavigationManager.Uri" />
+        @if (!string.IsNullOrEmpty(absoluteImageUrl))
+        {
+            <meta property="og:image" content="@absoluteImageUrl" />
+        }
+        <meta property="article:published_time" content="@post.FrontMatter.Published.ToString("o", CultureInfo.InvariantCulture)" />
+        @foreach (var author in post.FrontMatter.Authors)
+        {
+            <meta property="article:author" content="@author.Name" />
+        }
+        @foreach (var tag in post.FrontMatter.Tags)
+        {
+            <meta property="article:tag" content="@tag" />
+        }
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="@(string.IsNullOrEmpty(absoluteImageUrl) ? "summary" : "summary_large_image")" />
+        <meta name="twitter:title" content="@post.FrontMatter.Title" />
+        <meta name="twitter:description" content="@post.FrontMatter.Lead" />
+        @if (!string.IsNullOrEmpty(absoluteImageUrl))
+        {
+            <meta name="twitter:image" content="@absoluteImageUrl" />
+        }
+    }
+</HeadContent>
 
 <article class="mx-auto max-w-6xl">
     <!-- Compact Header -->
@@ -36,7 +79,7 @@
                 <div class="flex items-center space-x-4">
                     @foreach (var author in post.FrontMatter.Authors)
                     {
-                        <div class="flex items-center space-x-3">                          
+                        <div class="flex items-center space-x-3">
                             <!-- Author info -->
                             <div class="flex items-center space-x-3">
                                 <span class="text-sm font-medium text-gray-300">@author.Name</span>
@@ -72,7 +115,7 @@
                     <a target="_blank" rel="noopener noreferrer"
                        href="@($"{WebsiteKeys.BlogPostStorageAddress}/{FileName}")"
                        class="flex items-center space-x-2 text-sm text-gray-400 hover:text-primary-400 transition-colors">
-                        
+
                         <Svg SizeClasses="w-4 h-4" Icon="Svg.Icons.Github" />
                         <span>Edit on GitHub</span>
                     </a>
@@ -96,7 +139,7 @@
                 <div class="blog-content">
                     @((MarkupString)post.HtmlContent)
                 </div>
-            </div>         
+            </div>
         </main>
     </div>
 </article>
@@ -152,22 +195,33 @@
     /* Responsive adjustments for author/actions line */
     @@media (max-width: 768px) {
         /* Stack author and actions on mobile */
-        .author-actions-container
+        .author-actions-container {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
 
-    {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-    }
-
-    .quick-actions-mobile {
-        padding-left: 2.75rem; /* Align with author name */
-    }
-
+        .quick-actions-mobile {
+            padding-left: 2.75rem; /* Align with author name */
+        }
     }
 </style>
 
 @code {
     [Parameter] public string? FileName { get; set; }
     [Parameter] public Post<BlogFrontMatter>? post { get; set; }
+
+
+    private string? ExtractFirstImageUrl(string htmlContent)
+    {
+        if (string.IsNullOrEmpty(htmlContent))
+            return null;
+
+        var match = Regex.Match(htmlContent, "<img[^>]+src=\"([^\"]+)\"[^>]*>", RegexOptions.IgnoreCase);
+        if (match.Success && match.Groups.Count > 1)
+        {
+            return match.Groups[1].Value;
+        }
+        return null;
+    }
 }
