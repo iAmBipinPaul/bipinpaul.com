@@ -20,6 +20,9 @@
   <ItemGroup>
     <Watch Include="Content/**/*" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\images\bipinpaul.jpeg" />
+  </ItemGroup>
 
 
 </Project>
