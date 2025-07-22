@@ -20,5 +20,26 @@
 <!-- Fixed script loading order: main library first, then language modules -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/csharp.min.js"></script>
-<script>hljs.highlightAll();</script>
+<script>
+    // Initialize highlight.js when DOM is ready and after potential dynamic content loads
+    document.addEventListener('DOMContentLoaded', function() {
+        hljs.highlightAll();
+    });
+
+    // For static generated pages, also run immediately
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            hljs.highlightAll();
+        });
+    } else {
+        hljs.highlightAll();
+    }
+
+    // Re-highlight when navigating in Blazor (for SPA behavior)
+    window.addEventListener('popstate', function() {
+        setTimeout(function() {
+            hljs.highlightAll();
+        }, 100);
+    });
+</script>
 </html>
