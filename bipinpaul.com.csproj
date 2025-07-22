@@ -15,9 +15,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-	<Target Name="BuildTailwind" BeforeTargets="Build">
-		<Exec Command="npm run build-css" />
-	</Target>
 
   <!-- to make hot reload work on .md files -->
   <ItemGroup>
