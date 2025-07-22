@@ -4,30 +4,40 @@
 @inject BlazorStaticContentService<BlogFrontMatter> blazorStaticContentService
 @inject BlazorStaticService blazorStaticService
 
-<ul class="divide-y   divide-gray-700">
-    @foreach(var post in posts)
+<ul class="divide-y divide-gray-700">
+    @foreach (var post in posts)
     {
+        var firstImageUrl = ExtractFirstImageUrl(post.HtmlContent);
         <li class="py-12">
             <article>
-                <div class="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
-                    <dl>
-                        <dt class="sr-only">Published on</dt>
-                        <dd class="text-base font-medium leading-6 text-gray-400">
+                <div class="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0 xl:gap-8">
+                    <div class="space-y-4">
+                        <dl>
+                            <dt class="sr-only">Published on</dt>
+                            <dd class="text-base font-medium leading-6 text-gray-400">
+                                <time datetime="@post.FrontMatter.Published.ToString("yyyy-MM-ddTHH:mm:ss.fffK", CultureInfo.InvariantCulture)">
+                                    @post.FrontMatter.Published.ToString("MMMM d, yyyy", new CultureInfo("en-US"))
+                                </time>
+                            </dd>
+                        </dl>
+                        @if (!string.IsNullOrEmpty(firstImageUrl))
+                        {
+                            <div>
+                                <img src="@firstImageUrl"
+                                     alt="@post.FrontMatter.Title"
+                                     class="w-full h-32 object-cover rounded-lg shadow-md" />
+                            </div>
+                        }
+                    </div>
 
-                            <time datetime="@post.FrontMatter.Published.ToString("yyyy-MM-ddTHH:mm:ss.fffK", CultureInfo.InvariantCulture)">
-                                @post.FrontMatter.Published.ToString("MMMM d, yyyy", new CultureInfo("en-US"))
-                            </time>
-
-                        </dd>
-                    </dl>
-                    <div class="space-y-5 xl:col-span-3">
+                    <div class="space-y-5 xl:col-span-3" style="margin-left:10px">
                         <div class="space-y-6">
                             <div>
                                 <h2 class="text-2xl font-bold leading-8 tracking-tight">
                                     <a class="text-gray-100" href="@blazorStaticContentService.Options.PageUrl/@(post.Url)">@post.FrontMatter.Title</a>
                                 </h2>
-                                <div class="flex flex-wrap">
-                                    @foreach(var tag in post.FrontMatter.Tags)
+                                <div class="flex flex-wrap mt-3">
+                                    @foreach (var tag in post.FrontMatter.Tags)
                                     {
                                         <a class="text-primary-500 hover:text-primary-400 mr-3 text-sm font-medium uppercase" href="@blazorStaticContentService.Options.Tags.TagsPageUrl/@tag">@tag</a>
                                     }
@@ -38,7 +48,7 @@
                             </div>
                         </div>
                         <div class="text-base font-medium leading-6">
-                            <a class="text-primary-500 hover:text-primary-400" aria-label='Read "@(post.FrontMatter.Lead)"' href="@blazorStaticContentService.Options.PageUrl/@(post.Url)">Read more →</a>
+                            <a class="text-primary-500 hover:text-primary-400" aria-label='Read "@(post.FrontMatter.Title)"' href="@blazorStaticContentService.Options.PageUrl/@(post.Url)">Read more →</a>
                         </div>
                     </div>
                 </div>
@@ -47,19 +57,17 @@
     }
 </ul>
 
-
 @code {
     List<Post<BlogFrontMatter>> posts = new();
 
-
     [Parameter] public List<Post<BlogFrontMatter>>? Posts { get; set; }
-    [Parameter] public int? MaxPosts { get; set; } 
+    [Parameter] public int? MaxPosts { get; set; }
+
     protected override void OnInitialized()
     {
         posts = Posts != null ? Posts : blazorStaticContentService.Posts;
 
-
-        if (posts is not null  )
+        if (posts is not null)
         {
             if (MaxPosts.HasValue && MaxPosts > 0)
             {
@@ -69,10 +77,21 @@
             {
                 posts = posts.OrderByDescending(c => c.FrontMatter.Published).ToList();
             }
+        }
 
-        } 
-         
         base.OnInitialized();
     }
+
+    private string? ExtractFirstImageUrl(string htmlContent)
+    {
+        if (string.IsNullOrEmpty(htmlContent))
+            return null;
+
+        var match = System.Text.RegularExpressions.Regex.Match(htmlContent, "<img[^>]+src=\"([^\"]+)\"[^>]*>", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+        if (match.Success && match.Groups.Count > 1)
+        {
+            return match.Groups[1].Value;
+        }
+        return null;
+    }
 }
- 
