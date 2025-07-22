@@ -39,7 +39,7 @@ public static class WebsiteKeys
     public const string GitHubRepo = "https://github.com/iAmBipinPaul/bipinpaul.com";
     public const string X = "https://x.com/iAmBipinPaul";
     public const string Title = "Bipin Paul";
-    public const string BlogPostStorageAddress = $"{GitHubRepo}/tree/main/Content/Blog";
+    public const string BlogPostStorageAddress = $"{GitHubRepo}/tree/master/Content/Blog";
     public const string BlogLead = "A personal blog sharing insights and experiences.";
     public const string BlogPostUrl = "https://bipinpaul.com";
 }
