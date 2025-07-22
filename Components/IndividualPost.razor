@@ -9,7 +9,7 @@
     @if (post is not null)
     {
         var firstImageUrl = ExtractFirstImageUrl(post.HtmlContent);
-        var absoluteImageUrl = !string.IsNullOrEmpty(firstImageUrl) ? (WebsiteKeys.BlogPostUrl+firstImageUrl).ToString() : null;
+        var absoluteImageUrl = !string.IsNullOrEmpty(firstImageUrl) ? (WebsiteKeys.BlogPostUrl+"/"+firstImageUrl).ToString() : null;
 
         <title>@post.FrontMatter.Title</title>
         <meta name="description" content="@post.FrontMatter.Lead" />
