@@ -1,5 +1,5 @@
 ﻿---
-title: Display spinner on each API call automatically in Blazor,
+title: Display spinner on each API call automatically in Blazor
 lead: Display spinner on each API call automatically in Blazor.
 published: 2020-01-02
 tags: [Spinner, Blazor, Aspnetcore, Dotnet, webdev]
