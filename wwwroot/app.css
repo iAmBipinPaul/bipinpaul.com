@@ -2,76 +2,442 @@
 @tailwind components;
 @tailwind utilities;
 
-/* CSS Custom Properties */
+/* CSS Custom Properties - Design System */
 :root {
-    --color-primary: #0CAC5C;
-    --color-primary-light: #66D4A3;
-    --color-background: #2D2D2D;
-    --color-foreground: #FFFFFF;
-    --color-foreground-secondary: #F5F5F5;
-    --color-gray-medium: #474747;
-    /* New eye-friendly greens for dark theme */
-    --color-sage-green: #7FB069;
-    --color-sage-light: #8FA68F;
-    --color-teal-green: #66B2B2;
-    --color-sage-gray: #6B8F71;
+    /* Core Brand Colors */
+    --color-primary: #4B2AE8;
+    --color-primary-hover: #3B21B8;
+    --color-primary-dark: #24124D;
+    
+    /* Accent Colors */
+    --color-accent: #12C7B7;
+    --color-accent-lime: #89F227;
+    
+    /* Background Colors */
+    --color-bg-primary: #0B1020;
+    --color-bg-secondary: #2A3142;
+    --color-bg-surface: #2A3142;
+    --color-bg-hover: #5B6477;
+    
+    /* Text Colors */
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: #F3F6FB;
+    --color-text-tertiary: #D8DEE8;
+    --color-text-muted: #5B6477;
+    
+    /* State Colors */
+    --color-success: #89F227;
+    --color-warning: #FFB020;
+    --color-error: #F24B86;
+    
+    /* Border Colors */
+    --color-border: #2A3142;
+    --color-border-light: #5B6477;
+    --color-divider: rgba(255, 255, 255, 0.08);
 }
 
 /* Base Styles */
 body {
-    background-color: #2D2D2D;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Selection styling */
+::selection {
+    background-color: rgba(75, 42, 232, 0.4);
     color: #FFFFFF;
-    font-family: Arial, sans-serif;
 }
 
 /* Custom Component Styles */
 @layer components {
     .btn-primary {
-        @apply bg-primary-500 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-primary-600;
+        @apply bg-primary-500 text-white font-medium px-4 py-2 rounded-lg transition-all duration-200;
+        @apply hover:bg-primary-400 hover:shadow-glow-primary;
     }
 
     .btn-secondary {
-        @apply bg-gray-700 text-white font-medium px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-gray-600;
+        @apply bg-gray-700 text-white font-medium px-4 py-2 rounded-lg transition-all duration-200;
+        @apply hover:bg-gray-600 border border-gray-600 hover:border-gray-500;
+    }
+
+    .btn-accent {
+        @apply bg-accent-400 text-gray-950 font-medium px-4 py-2 rounded-lg transition-all duration-200;
+        @apply hover:bg-accent-300 hover:shadow-glow-accent;
     }
 
     .card {
-        @apply bg-gray-700 rounded-lg p-6 shadow-lg border border-gray-600;
+        @apply bg-gray-700 rounded-xl p-6 border border-gray-600;
+        @apply transition-all duration-300 hover:border-gray-500;
     }
 
-    /* Skill Tag Variations */
+    /* Skill Tags - Spectral Teal accent */
     .skill-tag {
-        @apply inline-block px-3 py-1 text-sm font-medium rounded-full m-0.5 transition-colors duration-200;
-        background-color: #7FB069; /* Soft olive green - most recommended */
-        color: #1F1F1F; /* Dark text for excellent contrast */
-    }
-
-        .skill-tag:hover {
-            background-color: #8FA68F; /* Slightly lighter on hover */
-        }
-
-    .skill-tag-teal {
-        @apply inline-block px-3 py-1 text-sm font-medium rounded-full m-0.5 transition-colors duration-200;
-        background-color: #66B2B2; /* Teal-green */
-        color: #1F1F1F;
-    }
-
-        .skill-tag-teal:hover {
-            background-color: #7CB8B8;
-        }
-
-    .skill-tag-sage {
-        @apply inline-block px-3 py-1 text-sm font-medium rounded-full m-0.5 transition-colors duration-200;
-        background-color: #6B8F71; /* Sage green with gray undertones */
-        color: #FFFFFF; /* White text for this darker shade */
-    }
-
-        .skill-tag-sage:hover {
-            background-color: #7A9B7A;
-        }
-
-    .skill-tag-secondary {
         @apply inline-block px-3 py-1 text-sm font-medium rounded-full m-0.5;
-        background-color: rgba(71, 71, 71, 0.9);
-        color: white;
+        @apply transition-all duration-200;
+        background-color: rgba(18, 199, 183, 0.15);
+        color: #12C7B7;
+        border: 1px solid rgba(18, 199, 183, 0.3);
     }
+
+    .skill-tag:hover {
+        background-color: rgba(18, 199, 183, 0.25);
+        border-color: rgba(18, 199, 183, 0.5);
+        box-shadow: 0 0 12px rgba(18, 199, 183, 0.2);
+    }
+
+    /* Alternative tag style - Neural Lime */
+    .skill-tag-lime {
+        @apply inline-block px-3 py-1 text-sm font-medium rounded-full m-0.5;
+        @apply transition-all duration-200;
+        background-color: rgba(137, 242, 39, 0.15);
+        color: #89F227;
+        border: 1px solid rgba(137, 242, 39, 0.3);
+    }
+
+    .skill-tag-lime:hover {
+        background-color: rgba(137, 242, 39, 0.25);
+        border-color: rgba(137, 242, 39, 0.5);
+    }
+
+    /* Primary brand tag */
+    .skill-tag-primary {
+        @apply inline-block px-3 py-1 text-sm font-medium rounded-full m-0.5;
+        @apply transition-all duration-200;
+        background-color: rgba(75, 42, 232, 0.15);
+        color: #a78bfa;
+        border: 1px solid rgba(75, 42, 232, 0.3);
+    }
+
+    .skill-tag-primary:hover {
+        background-color: rgba(75, 42, 232, 0.25);
+        border-color: rgba(75, 42, 232, 0.5);
+        box-shadow: 0 0 12px rgba(75, 42, 232, 0.2);
+    }
+
+    /* Muted/secondary tag */
+    .skill-tag-muted {
+        @apply inline-block px-3 py-1 text-sm font-medium rounded-full m-0.5;
+        background-color: rgba(91, 100, 119, 0.2);
+        color: #D8DEE8;
+        border: 1px solid rgba(91, 100, 119, 0.3);
+    }
+
+    /* Post card styling */
+    .post-card {
+        @apply relative rounded-2xl border border-gray-700 p-6;
+        @apply transition-all duration-300;
+        background: linear-gradient(135deg, rgba(42, 49, 66, 0.4) 0%, transparent 100%);
+    }
+
+    .post-card:hover {
+        @apply border-accent-400/30;
+        box-shadow: 0 10px 40px -10px rgba(18, 199, 183, 0.1);
+    }
+
+    /* Gradient text effect */
+    .text-gradient {
+        background: linear-gradient(135deg, #4B2AE8 0%, #12C7B7 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    /* Glow effects */
+    .glow-primary {
+        box-shadow: 0 0 20px rgba(75, 42, 232, 0.3);
+    }
+
+    .glow-accent {
+        box-shadow: 0 0 20px rgba(18, 199, 183, 0.3);
+    }
+
+    /* Border accent */
+    .border-accent-glow {
+        border-color: #12C7B7;
+        box-shadow: 0 0 10px rgba(18, 199, 183, 0.2);
+    }
+}
+
+/* Link styles */
+a {
+    @apply transition-colors duration-200;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+    outline: 2px solid #12C7B7;
+    outline-offset: 2px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0B1020;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2A3142;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #5B6477;
+}
+
+/* ===== CREATIVE ENHANCEMENTS ===== */
+
+/* Animated gradient background */
+.bg-gradient-animated {
+    background: linear-gradient(-45deg, #0B1020, #1a1f35, #0B1020, #151b2e);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Floating orbs background effect */
+.bg-orbs {
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-orbs::before,
+.bg-orbs::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bg-orbs::before {
+    width: 250px;
+    height: 250px;
+    background: #4B2AE8;
+    top: -80px;
+    right: -80px;
+    animation: float 20s ease-in-out infinite;
+}
+
+.bg-orbs::after {
+    width: 200px;
+    height: 200px;
+    background: #12C7B7;
+    bottom: -50px;
+    left: -50px;
+    animation: float 25s ease-in-out infinite reverse;
+}
+
+/* Larger orbs on desktop */
+@media (min-width: 768px) {
+    .bg-orbs::before {
+        width: 400px;
+        height: 400px;
+        top: -100px;
+        right: -100px;
+        opacity: 0.15;
+    }
+    
+    .bg-orbs::after {
+        width: 300px;
+        height: 300px;
+        opacity: 0.15;
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(30px, -30px) scale(1.05); }
+    50% { transform: translate(-20px, 20px) scale(0.95); }
+    75% { transform: translate(20px, 10px) scale(1.02); }
+}
+
+/* Glassmorphism card */
+.glass-card {
+    background: rgba(42, 49, 66, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+}
+
+.glass-card:hover {
+    background: rgba(42, 49, 66, 0.5);
+    border-color: rgba(18, 199, 183, 0.2);
+}
+
+/* Shimmer effect for loading states */
+.shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Animated underline for links */
+.link-underline {
+    position: relative;
+}
+
+.link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #4B2AE8, #12C7B7);
+    transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+    width: 100%;
+}
+
+/* Pulse animation for CTAs */
+.pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(18, 199, 183, 0.4); }
+    50% { box-shadow: 0 0 20px 5px rgba(18, 199, 183, 0.2); }
+}
+
+/* Stagger animation for lists */
+.stagger-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: staggerIn 0.5s ease forwards;
+}
+
+@keyframes staggerIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Gradient border effect */
+.gradient-border {
+    position: relative;
+    background: #0B1020;
+    border-radius: 1rem;
+}
+
+.gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, #4B2AE8, #12C7B7);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gradient-border:hover::before {
+    opacity: 1;
+}
+
+/* Text reveal animation */
+.text-reveal {
+    background: linear-gradient(90deg, #FFFFFF 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textReveal 0.8s ease forwards;
+}
+
+@keyframes textReveal {
+    to { background-position: 0 0; }
+}
+
+/* Hover lift effect */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px -12px rgba(18, 199, 183, 0.25);
+}
+
+/* Icon bounce on hover */
+.icon-bounce:hover svg {
+    animation: iconBounce 0.5s ease;
+}
+
+@keyframes iconBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+/* Typing cursor effect */
+.typing-cursor::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+    color: #12C7B7;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Number counter styling */
+.stat-number {
+    font-variant-numeric: tabular-nums;
+    background: linear-gradient(135deg, #FFFFFF 0%, #12C7B7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Reading progress indicator */
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #4B2AE8, #12C7B7);
+    z-index: 9999;
+    transition: width 0.1s ease;
+}
+
+/* Noise texture overlay */
+.noise-overlay {
+    position: relative;
+}
+
+.noise-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 1;
 }

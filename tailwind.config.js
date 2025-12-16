@@ -8,74 +8,88 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                // Primary brand colors from SVG
+                // Core Brand Colors - Quantum Purple
                 primary: {
-                    50: '#f0fdf8',
-                    100: '#dcfce9',
-                    200: '#bbf7d0',
-                    300: '#86efac',
-                    400: '#66D4A3', // Light green from SVG
-                    500: '#0CAC5C', // Main green from SVG
-                    600: '#0a9c52',
-                    700: '#087843',
-                    800: '#075d35',
-                    900: '#064e2d',
-                    950: '#022c1a',
+                    50: '#f5f3ff',
+                    100: '#ede9fe',
+                    200: '#ddd6fe',
+                    300: '#c4b5fd',
+                    400: '#3B21B8', // Primary Hover
+                    500: '#4B2AE8', // Quantum Purple (Main Brand)
+                    600: '#24124D', // Primary Dark (Deep Nebula)
+                    700: '#1e1040',
+                    800: '#180d33',
+                    900: '#120a26',
+                    950: '#0a0515',
                 },
-                // Eye-friendly greens for dark theme
-                sage: {
-                    50: '#f6f8f6',
-                    100: '#e8f0e8',
-                    200: '#d1e1d1',
-                    300: '#a8c8a8',
-                    400: '#8FA68F', // Light sage green
-                    500: '#7FB069', // Soft olive green (RECOMMENDED)
-                    600: '#6B8F71', // Sage green with gray undertones
-                    700: '#5a7a5a',
-                    800: '#4a634a',
-                    900: '#3d523d',
-                },
-                teal: {
+                // Accent Teal - Spectral Teal
+                accent: {
                     50: '#f0fdfa',
                     100: '#ccfbf1',
                     200: '#99f6e4',
                     300: '#5eead4',
-                    400: '#2dd4bf',
-                    500: '#66B2B2', // Medium teal-green (VERY EYE-FRIENDLY)
-                    600: '#5C9B9B', // Dark teal
-                    700: '#0f766e',
-                    800: '#115e59',
-                    900: '#134e4a',
+                    400: '#12C7B7', // Spectral Teal (Primary Accent)
+                    500: '#12C7B7',
+                    600: '#0fa89a',
+                    700: '#0d8a7f',
+                    800: '#0a6b63',
+                    900: '#084d47',
                 },
-                // Gray scale matching SVG
-                gray: {
-                    50: '#fafafa',
-                    100: '#F5F5F5', // Secondary light from SVG
-                    200: '#e5e5e5',
-                    300: '#d4d4d4',
-                    400: '#a3a3a3',
-                    500: '#737373',
-                    600: '#525252',
-                    700: '#474747', // Medium gray from SVG
-                    800: '#2D2D2D', // Main background from SVG
-                    900: '#171717',
-                    950: '#0a0a0a',
+                // Neural Lime - Secondary Accent
+                lime: {
+                    400: '#89F227',
+                    500: '#89F227', // Neural Lime
+                    600: '#6fc21f',
                 },
-                // Additional semantic colors
+                // Dark Theme Background Colors
                 background: {
-                    DEFAULT: '#2D2D2D',
-                    secondary: '#474747',
+                    DEFAULT: '#0B1020', // Obsidian Ink (Primary Background)
+                    secondary: '#2A3142', // Graphite (Secondary Background)
+                    surface: '#2A3142', // Cards, Panels
+                    hover: '#5B6477', // Slate (Surface Hover)
                 },
+                // Text Colors
                 foreground: {
-                    DEFAULT: '#FFFFFF',
-                    secondary: '#F5F5F5',
-                    muted: '#a3a3a3',
-                }
+                    DEFAULT: '#FFFFFF', // Pure White (Primary Text)
+                    secondary: '#F3F6FB', // Cloud (Secondary Text)
+                    tertiary: '#D8DEE8', // Mist (Tertiary Text)
+                    muted: '#5B6477', // Slate (Muted Text)
+                },
+                // State Colors
+                success: '#89F227', // Neural Lime
+                warning: '#FFB020', // Ion Amber
+                error: '#F24B86', // Infra Magenta
+                // Border Colors
+                border: {
+                    DEFAULT: '#2A3142', // Graphite Border
+                    light: '#5B6477', // Slate Border
+                },
+                // Gray scale for compatibility
+                gray: {
+                    50: '#F3F6FB',
+                    100: '#D8DEE8',
+                    200: '#b8c0d0',
+                    300: '#98a2b8',
+                    400: '#5B6477', // Slate
+                    500: '#4a5568',
+                    600: '#3d4556',
+                    700: '#2A3142', // Graphite
+                    800: '#1a2030',
+                    900: '#0f1520',
+                    950: '#0B1020', // Obsidian Ink
+                },
             },
             fontFamily: {
-                sans: ['Arial', 'sans-serif'],
-                mono: ['Consolas', 'monospace'],
-            }
+                sans: ['Inter', 'Arial', 'sans-serif'],
+                mono: ['JetBrains Mono', 'Consolas', 'monospace'],
+            },
+            boxShadow: {
+                'glow-primary': '0 0 20px rgba(75, 42, 232, 0.3)',
+                'glow-accent': '0 0 20px rgba(18, 199, 183, 0.3)',
+            },
+            borderColor: {
+                divider: 'rgba(255, 255, 255, 0.08)',
+            },
         },
     },
     plugins: [

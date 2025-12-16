@@ -7,32 +7,74 @@
 
 @if (TagName == null)
 {
-    <div class="flex flex-wrap justify-evenly gap-1">
-        @{
-            var tagsWithCount = blazorStaticContentService.Posts
-                .SelectMany(x => x.Tags)
-                .GroupBy(x => x)
-                .Select(group => new { Tag = group.Key, Count = group.Count() })
-                .OrderByDescending(x => x.Count);
+    <div class="py-12">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-300 text-sm font-medium mb-6">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                </svg>
+                @blazorStaticContentService.Posts.SelectMany(x => x.Tags).Distinct().Count() topics
+            </div>
+            <h1 class="text-4xl font-extrabold text-foreground sm:text-5xl md:text-6xl mb-4">
+                <span class="text-gradient">Explore Topics</span>
+            </h1>
+            <p class="text-foreground-muted text-lg max-w-xl mx-auto">
+                Discover articles organized by technology, framework, and concept
+            </p>
+        </div>
+        
+        <!-- Tag Cloud -->
+        <div class="glass-card p-8 max-w-4xl mx-auto">
+            <div class="flex flex-wrap justify-center items-center gap-3">
+                @{
+                    var tagsWithCount = blazorStaticContentService.Posts
+                        .SelectMany(x => x.Tags)
+                        .GroupBy(x => x)
+                        .Select(group => new { Tag = group.Key, Count = group.Count() })
+                        .OrderByDescending(x => x.Count);
 
-            foreach(var tagGroup in tagsWithCount)
-            {
-                <a class="text-primary-500 hover:text-primary-400 mr-3 text-sm font-medium uppercase" href="@($"{blazorStaticContentService.Options.Tags.TagsPageUrl}/{tagGroup.Tag.EncodedName}")">@tagGroup.Tag.Name</a>
-            }
-        }
+                    foreach(var tagGroup in tagsWithCount)
+                    {
+                        <a class="skill-tag text-sm px-4 py-2 font-medium hover:scale-105 transition-all duration-300" 
+                           href="@($"{blazorStaticContentService.Options.Tags.TagsPageUrl}/{tagGroup.Tag.EncodedName}")">
+                            @tagGroup.Tag.Name 
+                            <span class="ml-1.5 px-1.5 py-0.5 rounded-full bg-white/10 text-xs">@tagGroup.Count</span>
+                        </a>
+                    }
+                }
+            </div>
+        </div>
     </div>
     return;
 }
 
 
-<div class="divide-y divide-gray-700">
-    <div class="space-y-2 pb-8 pt-6 md:space-y-5">
-        <h1 class="font-sans md:leading-14 text-3xl font-extrabold leading-9 tracking-tight text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl">@TagName</h1>
-        <p class="text-lg leading-7 text-gray-400">
-            Blog posts tagged by
-            <span class="text-primary-300">@TagName</span>
-        </p>
+<div class="py-8">
+    <!-- Back navigation & Header -->
+    <div class="mb-10">
+        <a href="/tags" class="inline-flex items-center gap-2 text-foreground-muted hover:text-accent-400 transition-colors mb-6 group">
+            <svg class="w-5 h-5 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            <span>All Topics</span>
+        </a>
+        
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-2">
+                    <span class="skill-tag text-2xl sm:text-3xl md:text-4xl px-6 py-3">@TagName</span>
+                </h1>
+            </div>
+            <div class="flex items-center gap-2 text-foreground-muted">
+                <div class="w-10 h-10 rounded-xl bg-accent-400/10 flex items-center justify-center">
+                    <span class="text-accent-400 font-bold">@(posts?.Count ?? 0)</span>
+                </div>
+                <span>article@(posts?.Count != 1 ? "s" : "")</span>
+            </div>
+        </div>
     </div>
+    
     <PostsList Posts="posts"/>
 </div>
 
