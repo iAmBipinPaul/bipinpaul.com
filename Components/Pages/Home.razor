@@ -27,41 +27,23 @@
     <div class="flex flex-col lg:flex-row lg:items-center lg:gap-12">
         <!-- Profile Card -->
         <div class="flex-shrink-0 mb-8 lg:mb-0">
-            <div class="relative group">
-                <!-- Subtle gradient ring on hover -->
-                <div class="absolute -inset-1 bg-gradient-to-r from-primary-500 via-accent-400 to-primary-500 rounded-full blur-sm opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
-                
-                <!-- Profile image -->
-                <div class="relative">
-                    <img src="images/bipinpaul.jpeg" alt="Bipin Paul"
-                         class="w-32 h-32 lg:w-40 lg:h-40 rounded-full object-cover border-2 border-accent-400/30 relative z-10 shadow-lg" />
-                </div>
-            </div>
+            <img src="images/bipinpaul.jpeg" alt="Bipin Paul"
+                 class="w-32 h-32 lg:w-40 lg:h-40 rounded-full object-cover border-2 border-border shadow-lg" />
         </div>
         
         <!-- Hero Text -->
         <div class="flex-1">
             <div class="space-y-4">
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-accent-400/10 border border-accent-400/20 text-accent-400 text-sm font-medium">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                    Open to opportunities
-                </div>
-                
-                <h1 class="text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight">
-                    <span class="text-foreground">Hi, I'm </span>
-                    <span class="text-gradient">Bipin Paul</span>
+                <h1 class="text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-foreground">
+                    Hey, I'm Bipin Paul
                 </h1>
                 
                 <p class="text-xl lg:text-2xl text-foreground-tertiary max-w-2xl">
-                    .NET 9+ Developer crafting scalable solutions with 
-                    <span class="text-accent-400 font-semibold">Blazor</span> & 
-                    <span class="text-primary-300 font-semibold">Azure Cloud</span>
+                    .NET Developer building backend services and web applications with Blazor and Azure Cloud
                 </p>
                 
                 <!-- Social Links -->
-                <div class="flex items-center gap-3 pt-4">
+                <div class="flex items-center gap-3 pt-2">
                     <a href="https://linkedin.com/in/iambipinpaul" target="_blank" rel="noopener noreferrer"
                        class="p-2.5 rounded-lg bg-background-secondary/50 hover:bg-accent-400/10 border border-border hover:border-accent-400/30 text-foreground-muted hover:text-accent-400 transition-all duration-200" 
                        title="LinkedIn">
@@ -85,66 +67,140 @@
     </div>
 </div>
 
-<!-- About & Experience Section -->
-<div class="py-8">
-    <p class="text-lg text-foreground-tertiary mb-8 max-w-3xl">
-        Passionate about learning new skills and exploring challenges in backend/web development.
-        I deliver quality work that meets client needs and expectations.
+<!-- About Section -->
+<div class="py-8 border-t border-border">
+    <p class="text-lg text-foreground-tertiary mb-6 max-w-3xl">
+        I've spent the last 7+ years building web applications — from ERP and QMS systems to social platforms connecting communities. 
+        My go-to stack is .NET Core and Blazor, and while I specialize in backend architecture and cloud solutions, 
+        I'm comfortable working across the full stack when needed.
     </p>
+    
+    <!-- What I Work With -->
+    <div class="grid md:grid-cols-2 gap-6 mb-8">
+        <!-- The Core -->
+        <div class="glass-card p-5">
+            <h3 class="font-bold text-foreground mb-3 flex items-center gap-2">
+                <svg class="w-5 h-5 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+                The Core
+            </h3>
+            <p class="text-foreground-tertiary text-sm mb-3">
+                ASP.NET Core & Blazor are my go-to tools for building fast, reliable web apps.
+            </p>
+            <div class="flex flex-wrap gap-2">
+                <span class="skill-tag text-xs">ASP.NET Core</span>
+                <span class="skill-tag text-xs">Blazor</span>
+                <span class="skill-tag text-xs">C#</span>
+                <span class="skill-tag text-xs">Web API</span>
+            </div>
+        </div>
+        
+        <!-- Data -->
+        <div class="glass-card p-5">
+            <h3 class="font-bold text-foreground mb-3 flex items-center gap-2">
+                <svg class="w-5 h-5 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
+                </svg>
+                Data
+            </h3>
+            <p class="text-foreground-tertiary text-sm mb-3">
+                MS SQL, PostgreSQL, and Cosmos DB to keep data organized and scalable.
+            </p>
+            <div class="flex flex-wrap gap-2">
+                <span class="skill-tag text-xs">SQL Server</span>
+                <span class="skill-tag text-xs">PostgreSQL</span>
+                <span class="skill-tag text-xs">Cosmos DB</span>
+                <span class="skill-tag text-xs">Entity Framework</span>
+            </div>
+        </div>
+        
+        <!-- Cloud & Ops -->
+        <div class="glass-card p-5">
+            <h3 class="font-bold text-foreground mb-3 flex items-center gap-2">
+                <svg class="w-5 h-5 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                </svg>
+                Cloud & Ops
+            </h3>
+            <p class="text-foreground-tertiary text-sm mb-3">
+                Azure Functions, Container Apps, and Service Bus for cloud-native solutions.
+            </p>
+            <div class="flex flex-wrap gap-2">
+                <span class="skill-tag text-xs">Azure Functions</span>
+                <span class="skill-tag text-xs">Container Apps</span>
+                <span class="skill-tag text-xs">Service Bus</span>
+            </div>
+        </div>
+        
+        <!-- Toolbelt -->
+        <div class="glass-card p-5">
+            <h3 class="font-bold text-foreground mb-3 flex items-center gap-2">
+                <svg class="w-5 h-5 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                Toolbelt
+            </h3>
+            <p class="text-foreground-tertiary text-sm mb-3">
+                DevOps and automation tools I use daily.
+            </p>
+            <div class="flex flex-wrap gap-2">
+                <span class="skill-tag text-xs">Docker</span>
+                <span class="skill-tag text-xs">GitHub Actions</span>
+                <span class="skill-tag text-xs">Azure DevOps</span>
+            </div>
+        </div>
+    </div>
+    
+    <p class="text-foreground-tertiary max-w-2xl">
+        I believe software development is a craft that never stops evolving. I'm always learning new patterns, 
+        trying new tools, and looking for the next interesting challenge.
+    </p>
+    
+    <p class="text-foreground mt-6 font-medium">
+        Let's build something great together.
+    </p>
+</div>
 
-    <!-- Experience Cards -->
-    <div class="grid md:grid-cols-2 gap-4 mb-8">
-        <div class="glass-card p-4 sm:p-5 transition-colors duration-200 hover:border-accent-400/20">
-            <div class="flex items-start gap-3 sm:gap-4">
-                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-primary-500/20 to-primary-500/5 flex items-center justify-center flex-shrink-0">
-                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<!-- Current Roles -->
+<div class="py-8 border-t border-border">
+    <h2 class="text-xl font-bold text-foreground mb-6">Current Roles</h2>
+    <div class="grid md:grid-cols-2 gap-4">
+        <div class="glass-card p-5 transition-colors duration-200 hover:border-accent-400/20">
+            <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl bg-primary-500/20 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                 </div>
-                <div class="flex-1 min-w-0">
-                    <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mb-1">
-                        <h3 class="font-bold text-foreground text-sm sm:text-base">ASP.NET Core & Blazor Dev</h3>
-                        <span class="skill-tag text-xs py-0.5 px-2 w-fit flex-shrink-0">Part-time</span>
+                <div class="flex-1">
+                    <div class="flex items-center gap-2 mb-1">
+                        <h3 class="font-bold text-foreground">ASP.NET Core & Blazor Dev</h3>
+                        <span class="skill-tag text-xs py-0.5 px-2">Part-time</span>
                     </div>
-                    <p class="text-foreground-tertiary text-xs sm:text-sm">Bonyf AG, Liechtenstein</p>
+                    <p class="text-foreground-tertiary text-sm">Bonyf AG, Liechtenstein</p>
                     <p class="text-foreground-muted text-xs mt-1">2024 – Present</p>
                 </div>
             </div>
         </div>
         
-        <div class="glass-card p-4 sm:p-5 transition-colors duration-200 hover:border-accent-400/20">
-            <div class="flex items-start gap-3 sm:gap-4">
-                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-accent-400/20 to-accent-400/5 flex items-center justify-center flex-shrink-0">
-                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="glass-card p-5 transition-colors duration-200 hover:border-accent-400/20">
+            <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl bg-accent-400/20 flex items-center justify-center flex-shrink-0">
+                    <svg class="w-5 h-5 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
                     </svg>
                 </div>
-                <div class="flex-1 min-w-0">
-                    <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 mb-1">
-                        <h3 class="font-bold text-foreground text-sm sm:text-base">Cloud Engineer</h3>
-                        <span class="skill-tag text-xs py-0.5 px-2 w-fit flex-shrink-0">Part-time</span>
+                <div class="flex-1">
+                    <div class="flex items-center gap-2 mb-1">
+                        <h3 class="font-bold text-foreground">Cloud Engineer</h3>
+                        <span class="skill-tag text-xs py-0.5 px-2">Part-time</span>
                     </div>
-                    <p class="text-foreground-tertiary text-xs sm:text-sm">CloudBloq, India</p>
+                    <p class="text-foreground-tertiary text-sm">CloudBloq, India</p>
                     <p class="text-foreground-muted text-xs mt-1">2019 – Present</p>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Core Technologies -->
-    <div>
-        <h3 class="text-sm font-semibold text-foreground-muted uppercase tracking-wider mb-4">Core Technologies</h3>
-        <div class="flex flex-wrap gap-2">
-            <span class="skill-tag">C#</span>
-            <span class="skill-tag">ASP.NET Core</span>
-            <span class="skill-tag">Blazor</span>
-            <span class="skill-tag">Azure Functions</span>
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">Cosmos DB</span>
-            <span class="skill-tag">SQL Server</span>
-            <span class="skill-tag">PostgreSQL</span>
-            <span class="skill-tag">Entity Framework Core</span>
-            <span class="skill-tag">Angular</span>
         </div>
     </div>
 </div>
@@ -153,7 +209,7 @@
 <div class="mt-12">
     <div class="text-center mb-10">
         <h2 class="text-2xl font-extrabold text-foreground sm:text-3xl md:text-4xl mb-3">
-            <span class="text-gradient">Latest Posts</span>
+            Latest Posts
         </h2>
         <p class="text-foreground-muted">
             Sharing my journey and insights in .NET development and cloud technologies
