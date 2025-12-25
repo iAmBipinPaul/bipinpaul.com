@@ -1,4 +1,4 @@
-﻿@inject NavigationManager Nm
+@inject NavigationManager Nm
 
 <header class="flex items-center justify-between py-8">
     <!-- Logo -->
@@ -7,14 +7,14 @@
             <span class="text-xl font-bold text-foreground hover:text-accent-400 transition-colors">@WebsiteKeys.Title</span>
         </a>
     </div>
-    
+
     <!-- Desktop Navigation -->
     <nav class="hidden sm:flex items-center gap-1">
         @foreach (var item in menuItems)
         {
             @if (!string.IsNullOrEmpty(item.Name))
             {
-                <NavLink ActiveClass="bg-accent-400/10 text-accent-400 border-accent-400/30" 
+                <NavLink ActiveClass="bg-accent-400/10 text-accent-400 border-accent-400/30"
                          class="px-4 py-2 rounded-lg font-medium text-foreground-secondary hover:text-accent-400 hover:bg-accent-400/5 border border-transparent transition-all duration-200"
                          Match="@(item.Link == "" ? NavLinkMatch.All : NavLinkMatch.Prefix)" href="@item.Link">
                     @item.Name
@@ -22,21 +22,21 @@
             }
             else
             {
-                <a href="@item.Link" target="_blank" rel="noopener noreferrer" 
+                <a href="@item.Link" target="_blank" rel="noopener noreferrer"
                    class="ml-2 p-2 rounded-lg text-foreground-muted hover:text-accent-400 hover:bg-accent-400/5 border border-transparent hover:border-accent-400/20 transition-all duration-200 icon-bounce">
-                    <Svg Icon="item.Icon" SizeClasses="w-5 h-5" />
+                    <Svg Icon="item.Icon" SizeClasses="w-5 h-5"/>
                 </a>
             }
         }
     </nav>
-    
+
     <!-- Mobile Menu Button -->
     <button id="toggle-button" aria-label="Toggle Menu" class="sm:hidden p-2 rounded-lg hover:bg-accent-400/10 transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-8 w-8 text-foreground">
             <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
         </svg>
     </button>
-    
+
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="fixed inset-0 z-50 translate-x-full transform duration-300 ease-in-out bg-background">
         <!-- Close button -->
@@ -47,7 +47,7 @@
                 </svg>
             </button>
         </div>
-        
+
         <!-- Mobile nav links -->
         <nav class="px-6 pt-4">
             @foreach (var item in menuItems)
@@ -55,9 +55,9 @@
                 @if (!string.IsNullOrEmpty(item.Name))
                 {
                     <div class="py-3">
-                        <NavLink ActiveClass="text-accent-400" 
+                        <NavLink ActiveClass="text-accent-400"
                                  class="text-2xl font-bold text-foreground hover:text-accent-400 transition-colors block"
-                                 Match="@(item.Link == "" ? NavLinkMatch.All : NavLinkMatch.Prefix)" 
+                                 Match="@(item.Link == "" ? NavLinkMatch.All : NavLinkMatch.Prefix)"
                                  href="@item.Link">
                             @item.Name
                         </NavLink>
@@ -66,9 +66,9 @@
                 else
                 {
                     <div class="py-3">
-                        <a href="@item.Link" target="_blank" rel="noopener noreferrer" 
+                        <a href="@item.Link" target="_blank" rel="noopener noreferrer"
                            class="inline-flex items-center gap-2 text-foreground-muted hover:text-accent-400 transition-colors">
-                            <Svg Icon="item.Icon" SizeClasses="w-6 h-6" />
+                            <Svg Icon="item.Icon" SizeClasses="w-6 h-6"/>
                             <span class="text-lg">GitHub</span>
                         </a>
                     </div>
@@ -94,5 +94,6 @@
         new("Tags", "tags"),
         new("", WebsiteKeys.GitHubRepo, Svg.Icons.Github)
     ];
+
     record MenuItem(string Name, string Link, Svg.Icons? Icon = null);
 }

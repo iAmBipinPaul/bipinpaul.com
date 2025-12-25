@@ -12,7 +12,7 @@
         <div class="text-center mb-12">
             <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-300 text-sm font-medium mb-6">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
                 </svg>
                 @blazorStaticContentService.Posts.SelectMany(x => x.Tags).Distinct().Count() topics
             </div>
@@ -23,7 +23,7 @@
                 Discover articles organized by technology, framework, and concept
             </p>
         </div>
-        
+
         <!-- Tag Cloud -->
         <div class="glass-card p-8 max-w-4xl mx-auto">
             <div class="flex flex-wrap justify-center items-center gap-3">
@@ -34,11 +34,11 @@
                         .Select(group => new { Tag = group.Key, Count = group.Count() })
                         .OrderByDescending(x => x.Count);
 
-                    foreach(var tagGroup in tagsWithCount)
+                    foreach (var tagGroup in tagsWithCount)
                     {
-                        <a class="skill-tag text-sm px-4 py-2 font-medium hover:scale-105 transition-all duration-300" 
+                        <a class="skill-tag text-sm px-4 py-2 font-medium hover:scale-105 transition-all duration-300"
                            href="@($"{blazorStaticContentService.Options.Tags.TagsPageUrl}/{tagGroup.Tag.EncodedName}")">
-                            @tagGroup.Tag.Name 
+                            @tagGroup.Tag.Name
                             <span class="ml-1.5 px-1.5 py-0.5 rounded-full bg-white/10 text-xs">@tagGroup.Count</span>
                         </a>
                     }
@@ -55,11 +55,11 @@
     <div class="mb-10">
         <a href="/tags" class="inline-flex items-center gap-2 text-foreground-muted hover:text-accent-400 transition-colors mb-6 group">
             <svg class="w-5 h-5 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
             </svg>
             <span>All Topics</span>
         </a>
-        
+
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
                 <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-foreground mb-2">
@@ -74,7 +74,7 @@
             </div>
         </div>
     </div>
-    
+
     <PostsList Posts="posts"/>
 </div>
 

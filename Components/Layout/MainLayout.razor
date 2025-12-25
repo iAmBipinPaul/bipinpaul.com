@@ -6,36 +6,36 @@
 
             <NavMenu/>
 
-        <main class="mb-auto">
-            @Body
-        </main>
+            <main class="mb-auto">
+                @Body
+            </main>
 
-        <footer>
-            <div class="mt-16 flex flex-col items-center border-t border-border pt-10 pb-8">
-                <!-- Social Links -->
-                <div class="mb-6 flex space-x-5">
-                    <a class="text-foreground-muted hover:text-accent-400 hover:scale-110 transition-all duration-200" target="_blank" rel="noopener noreferrer" href="@WebsiteKeys.GitHubRepo">
-                        <span class="sr-only">github</span>
-                        <Svg Icon="Svg.Icons.Github" SizeClasses="w-6 h-6"/>
-                    </a>
-                    <a class="text-foreground-muted hover:text-accent-400 hover:scale-110 transition-all duration-200" target="_blank" rel="noopener noreferrer" href="@WebsiteKeys.X">
-                        <span class="sr-only">x</span>
-                        <Svg Icon="Svg.Icons.X" SizeClasses="w-6 h-6"/>
-                    </a>
+            <footer>
+                <div class="mt-16 flex flex-col items-center border-t border-border pt-10 pb-8">
+                    <!-- Social Links -->
+                    <div class="mb-6 flex space-x-5">
+                        <a class="text-foreground-muted hover:text-accent-400 hover:scale-110 transition-all duration-200" target="_blank" rel="noopener noreferrer" href="@WebsiteKeys.GitHubRepo">
+                            <span class="sr-only">github</span>
+                            <Svg Icon="Svg.Icons.Github" SizeClasses="w-6 h-6"/>
+                        </a>
+                        <a class="text-foreground-muted hover:text-accent-400 hover:scale-110 transition-all duration-200" target="_blank" rel="noopener noreferrer" href="@WebsiteKeys.X">
+                            <span class="sr-only">x</span>
+                            <Svg Icon="Svg.Icons.X" SizeClasses="w-6 h-6"/>
+                        </a>
+                    </div>
+
+                    <!-- Credits -->
+                    <div class="flex flex-col sm:flex-row items-center gap-2 text-sm text-foreground-muted">
+                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/BlazorStatic/BlazorStatic"
+                           class="hover:text-accent-400 transition-colors inline-flex items-center gap-1">
+                            <span>Built with</span>
+                            <span class="text-accent-400 font-medium">Blazor Static</span>
+                        </a>
+                        <span class="hidden sm:inline text-border-light">•</span>
+                        <span>© @DateTime.Now.Year Bipin Paul</span>
+                    </div>
                 </div>
-                
-                <!-- Credits -->
-                <div class="flex flex-col sm:flex-row items-center gap-2 text-sm text-foreground-muted">
-                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/BlazorStatic/BlazorStatic" 
-                       class="hover:text-accent-400 transition-colors inline-flex items-center gap-1">
-                        <span>Built with</span>
-                        <span class="text-accent-400 font-medium">Blazor Static</span>
-                    </a>
-                    <span class="hidden sm:inline text-border-light">•</span>
-                    <span>© @DateTime.Now.Year Bipin Paul</span>
-                </div>
-            </div>
-        </footer>
+            </footer>
         </div>
     </div>
 </div>
