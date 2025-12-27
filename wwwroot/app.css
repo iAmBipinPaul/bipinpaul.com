@@ -5,35 +5,61 @@
 /* CSS Custom Properties - Design System */
 :root {
     /* Core Brand Colors */
-    --color-primary: #4B2AE8;
-    --color-primary-hover: #3B21B8;
-    --color-primary-dark: #24124D;
-    
+    --color-primary: #764AF1;
+    --color-primary-hover: #8B5CF6;
+    --color-primary-active: #5B2DCF;
+    --color-primary-dark: #3D1A99;
+    --color-primary-light: #A78BFA;
+
     /* Accent Colors */
-    --color-accent: #12C7B7;
-    --color-accent-lime: #89F227;
-    
+    --color-accent: #06B6D4;
+    /* Neon Cyan */
+    --color-accent-hover: #22D3EE;
+    --color-accent-pink: #EC4899;
+    /* Hot Pink */
+    --color-accent-pink-hover: #F472B6;
+
     /* Background Colors */
-    --color-bg-primary: #0B1020;
-    --color-bg-secondary: #2A3142;
-    --color-bg-surface: #2A3142;
-    --color-bg-hover: #5B6477;
-    
+    --color-bg-primary: #0F172A;
+    /* Slate 900 */
+    --color-bg-secondary: #1E293B;
+    /* Slate 800 */
+    --color-bg-tertiary: #020617;
+    /* Slate 950 */
+    --color-bg-surface: rgba(30, 41, 59, 0.7);
+    --color-bg-hover: rgba(51, 65, 85, 0.8);
+    --color-bg-active: rgba(71, 85, 105, 0.9);
+
     /* Text Colors */
-    --color-text-primary: #FFFFFF;
-    --color-text-secondary: #F3F6FB;
-    --color-text-tertiary: #D8DEE8;
-    --color-text-muted: #5B6477;
-    
-    /* State Colors */
-    --color-success: #89F227;
-    --color-warning: #FFB020;
-    --color-error: #F24B86;
-    
+    --color-text-primary: #F8FAFC;
+    /* Slate 50 */
+    --color-text-secondary: #CBD5E1;
+    /* Slate 300 */
+    --color-text-tertiary: #94A3B8;
+    /* Slate 400 */
+    --color-text-muted: #64748B;
+    /* Slate 500 */
+
+    /* Status Colors */
+    --color-success: #10B981;
+    /* Emerald */
+    --color-warning: #F59E0B;
+    /* Amber */
+    --color-error: #EF4444;
+    /* Red */
+    --color-info: #3B82F6;
+    /* Blue */
+
     /* Border Colors */
-    --color-border: #2A3142;
-    --color-border-light: #5B6477;
-    --color-divider: rgba(255, 255, 255, 0.08);
+    --color-border: rgba(255, 255, 255, 0.08);
+    --color-border-light: rgba(255, 255, 255, 0.12);
+    --color-divider: rgba(255, 255, 255, 0.06);
+
+    /* Code Syntax */
+    --color-code-keyword: #C084FC;
+    --color-code-class: #F472B6;
+    --color-code-type: #22D3EE;
+    --color-code-string: #34D399;
 }
 
 /* Base Styles */
@@ -50,7 +76,7 @@ html {
 
 /* Selection styling */
 ::selection {
-    background-color: rgba(75, 42, 232, 0.4);
+    background-color: rgba(118, 74, 241, 0.4);
     color: #FFFFFF;
 }
 
@@ -80,44 +106,44 @@ html {
     .skill-tag {
         @apply inline-block px-3 py-1 text-sm font-medium rounded-full m-0.5;
         @apply transition-all duration-200;
-        background-color: rgba(18, 199, 183, 0.15);
-        color: #12C7B7;
-        border: 1px solid rgba(18, 199, 183, 0.3);
+        background-color: rgba(6, 182, 212, 0.15);
+        color: #06B6D4;
+        border: 1px solid rgba(6, 182, 212, 0.3);
     }
 
     .skill-tag:hover {
-        background-color: rgba(18, 199, 183, 0.25);
-        border-color: rgba(18, 199, 183, 0.5);
-        box-shadow: 0 0 12px rgba(18, 199, 183, 0.2);
+        background-color: rgba(6, 182, 212, 0.25);
+        border-color: rgba(6, 182, 212, 0.5);
+        box-shadow: 0 0 12px rgba(6, 182, 212, 0.2);
     }
 
-    /* Alternative tag style - Neural Lime */
-    .skill-tag-lime {
+    /* Alternative tag style - Accent Pink */
+    .skill-tag-pink {
         @apply inline-block px-3 py-1 text-sm font-medium rounded-full m-0.5;
         @apply transition-all duration-200;
-        background-color: rgba(137, 242, 39, 0.15);
-        color: #89F227;
-        border: 1px solid rgba(137, 242, 39, 0.3);
+        background-color: rgba(236, 72, 153, 0.15);
+        color: #EC4899;
+        border: 1px solid rgba(236, 72, 153, 0.3);
     }
 
-    .skill-tag-lime:hover {
-        background-color: rgba(137, 242, 39, 0.25);
-        border-color: rgba(137, 242, 39, 0.5);
+    .skill-tag-pink:hover {
+        background-color: rgba(236, 72, 153, 0.25);
+        border-color: rgba(236, 72, 153, 0.5);
     }
 
     /* Primary brand tag */
     .skill-tag-primary {
         @apply inline-block px-3 py-1 text-sm font-medium rounded-full m-0.5;
         @apply transition-all duration-200;
-        background-color: rgba(75, 42, 232, 0.15);
-        color: #a78bfa;
-        border: 1px solid rgba(75, 42, 232, 0.3);
+        background-color: rgba(118, 74, 241, 0.15);
+        color: #A78BFA;
+        border: 1px solid rgba(118, 74, 241, 0.3);
     }
 
     .skill-tag-primary:hover {
-        background-color: rgba(75, 42, 232, 0.25);
-        border-color: rgba(75, 42, 232, 0.5);
-        box-shadow: 0 0 12px rgba(75, 42, 232, 0.2);
+        background-color: rgba(118, 74, 241, 0.25);
+        border-color: rgba(118, 74, 241, 0.5);
+        box-shadow: 0 0 12px rgba(118, 74, 241, 0.2);
     }
 
     /* Muted/secondary tag */
@@ -137,12 +163,12 @@ html {
 
     .post-card:hover {
         @apply border-accent-400/30;
-        box-shadow: 0 10px 40px -10px rgba(18, 199, 183, 0.1);
+        box-shadow: 0 10px 40px -10px rgba(6, 182, 212, 0.1);
     }
 
     /* Gradient text effect */
     .text-gradient {
-        background: linear-gradient(135deg, #4B2AE8 0%, #12C7B7 100%);
+        background: linear-gradient(135deg, #764AF1 0%, #06B6D4 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -150,17 +176,17 @@ html {
 
     /* Glow effects */
     .glow-primary {
-        box-shadow: 0 0 20px rgba(75, 42, 232, 0.3);
+        box-shadow: 0 0 20px rgba(118, 74, 241, 0.3);
     }
 
     .glow-accent {
-        box-shadow: 0 0 20px rgba(18, 199, 183, 0.3);
+        box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
     }
 
     /* Border accent */
     .border-accent-glow {
-        border-color: #12C7B7;
-        box-shadow: 0 0 10px rgba(18, 199, 183, 0.2);
+        border-color: #06B6D4;
+        box-shadow: 0 0 10px rgba(6, 182, 212, 0.2);
     }
 }
 
@@ -171,7 +197,7 @@ a {
 
 /* Focus styles for accessibility */
 :focus-visible {
-    outline: 2px solid #12C7B7;
+    outline: 2px solid #06B6D4;
     outline-offset: 2px;
 }
 
@@ -204,9 +230,17 @@ a {
 }
 
 @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* Floating orbs background effect */
@@ -229,7 +263,7 @@ a {
 .bg-orbs::before {
     width: 250px;
     height: 250px;
-    background: #4B2AE8;
+    background: #764AF1;
     top: -80px;
     right: -80px;
     animation: float 20s ease-in-out infinite;
@@ -238,7 +272,7 @@ a {
 .bg-orbs::after {
     width: 200px;
     height: 200px;
-    background: #12C7B7;
+    background: #06B6D4;
     bottom: -50px;
     left: -50px;
     animation: float 25s ease-in-out infinite reverse;
@@ -253,7 +287,7 @@ a {
         right: -100px;
         opacity: 0.15;
     }
-    
+
     .bg-orbs::after {
         width: 300px;
         height: 300px;
@@ -262,10 +296,23 @@ a {
 }
 
 @keyframes float {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    25% { transform: translate(30px, -30px) scale(1.05); }
-    50% { transform: translate(-20px, 20px) scale(0.95); }
-    75% { transform: translate(20px, 10px) scale(1.02); }
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    25% {
+        transform: translate(30px, -30px) scale(1.05);
+    }
+
+    50% {
+        transform: translate(-20px, 20px) scale(0.95);
+    }
+
+    75% {
+        transform: translate(20px, 10px) scale(1.02);
+    }
 }
 
 /* Glassmorphism card */
@@ -279,19 +326,24 @@ a {
 
 .glass-card:hover {
     background: rgba(42, 49, 66, 0.5);
-    border-color: rgba(18, 199, 183, 0.2);
+    border-color: rgba(6, 182, 212, 0.2);
 }
 
 /* Shimmer effect for loading states */
 .shimmer {
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite;
 }
 
 @keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
 }
 
 /* Animated underline for links */
@@ -306,7 +358,7 @@ a {
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(90deg, #4B2AE8, #12C7B7);
+    background: linear-gradient(90deg, #764AF1, #06B6D4);
     transition: width 0.3s ease;
 }
 
@@ -320,8 +372,15 @@ a {
 }
 
 @keyframes pulseGlow {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(18, 199, 183, 0.4); }
-    50% { box-shadow: 0 0 20px 5px rgba(18, 199, 183, 0.2); }
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 20px 5px rgba(6, 182, 212, 0.2);
+    }
 }
 
 /* Stagger animation for lists */
@@ -350,7 +409,7 @@ a {
     position: absolute;
     inset: -1px;
     border-radius: inherit;
-    background: linear-gradient(135deg, #4B2AE8, #12C7B7);
+    background: linear-gradient(135deg, #764AF1, #06B6D4);
     z-index: -1;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -372,7 +431,9 @@ a {
 }
 
 @keyframes textReveal {
-    to { background-position: 0 0; }
+    to {
+        background-position: 0 0;
+    }
 }
 
 /* Hover lift effect */
@@ -382,7 +443,7 @@ a {
 
 .hover-lift:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px -12px rgba(18, 199, 183, 0.25);
+    box-shadow: 0 12px 40px -12px rgba(6, 182, 212, 0.25);
 }
 
 /* Icon bounce on hover */
@@ -391,26 +452,40 @@ a {
 }
 
 @keyframes iconBounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-3px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
 }
 
 /* Typing cursor effect */
 .typing-cursor::after {
     content: '|';
     animation: blink 1s step-end infinite;
-    color: #12C7B7;
+    color: #06B6D4;
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 /* Number counter styling */
 .stat-number {
     font-variant-numeric: tabular-nums;
-    background: linear-gradient(135deg, #FFFFFF 0%, #12C7B7 100%);
+    background: linear-gradient(135deg, #FFFFFF 0%, #06B6D4 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -422,7 +497,7 @@ a {
     top: 0;
     left: 0;
     height: 3px;
-    background: linear-gradient(90deg, #4B2AE8, #12C7B7);
+    background: linear-gradient(90deg, #764AF1, #06B6D4);
     z-index: 9999;
     transition: width 0.1s ease;
 }
