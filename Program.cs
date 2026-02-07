@@ -1,5 +1,6 @@
-using BlazorStatic;
 using bipinpaul.com.Components;
+using BlazorStatic;
+using Microsoft.Extensions.FileProviders;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,9 @@ builder.WebHost.UseStaticWebAssets();
 builder.Services.AddBlazorStaticService(opt =>
     {
         //opt. //check to change the defaults
+        opt.ShouldGenerateSitemap = true;
+        opt.SiteUrl = WebsiteKeys.BlogPostUrl;
+        opt.HotReloadEnabled = true;
     }
 ).AddBlazorStaticContentService<BlogFrontMatter>();
 
@@ -24,8 +28,14 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseStaticFiles();
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(),
+        "Content", "Blog", "media"))
+});
+
+
 app.UseAntiforgery();
 
 app.MapRazorComponents<App>();
