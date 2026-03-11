@@ -604,12 +604,6 @@
         text-decoration: none;
     }
 
-    .article-title-link:hover {
-        text-decoration: underline;
-        text-decoration-color: rgba(var(--color-accent-rgb), 0.45);
-        text-underline-offset: 0.2em;
-    }
-
     .article-meta-link {
         display: inline-flex;
         align-items: center;
