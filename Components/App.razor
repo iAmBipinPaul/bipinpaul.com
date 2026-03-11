@@ -4,8 +4,155 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F7F9FC"/>
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111827"/>
+    <script>
+        (() => {
+            const storageKey = 'theme-preference';
+            const themeColors = {
+                light: '#F7F9FC',
+                dark: '#111827'
+            };
+            const darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+            const getStoredTheme = () => {
+                try {
+                    const storedTheme = window.localStorage.getItem(storageKey);
+                    return storedTheme === 'light' || storedTheme === 'dark' ? storedTheme : null;
+                } catch {
+                    return null;
+                }
+            };
+
+            const getSystemTheme = () => darkMediaQuery.matches ? 'dark' : 'light';
+
+            const getResolvedTheme = () => getStoredTheme() ?? getSystemTheme();
+
+            const updateThemeMeta = (theme) => {
+                const themeColorMeta = document.getElementById('theme-color-meta');
+                if (themeColorMeta) {
+                    themeColorMeta.setAttribute('content', themeColors[theme]);
+                }
+            };
+
+            const updateHighlightTheme = (theme) => {
+                const lightThemeLink = document.getElementById('hljs-light-theme');
+                const darkThemeLink = document.getElementById('hljs-dark-theme');
+
+                if (lightThemeLink) {
+                    lightThemeLink.setAttribute('media', theme === 'light' ? 'all' : 'not all');
+                }
+
+                if (darkThemeLink) {
+                    darkThemeLink.setAttribute('media', theme === 'dark' ? 'all' : 'not all');
+                }
+            };
+
+            const updateToggleLabels = (theme) => {
+                const nextTheme = theme === 'dark' ? 'light' : 'dark';
+
+                document.querySelectorAll('[data-theme-toggle]').forEach((button) => {
+                    button.setAttribute('aria-label', `Switch to ${nextTheme} theme`);
+                    button.setAttribute('title', `Switch to ${nextTheme} theme`);
+                });
+            };
+
+            const updateGiscusTheme = (theme) => {
+                const giscusFrame = document.querySelector('iframe.giscus-frame');
+                if (!giscusFrame?.contentWindow) {
+                    return;
+                }
+
+                giscusFrame.contentWindow.postMessage(
+                    {
+                        giscus: {
+                            setConfig: {
+                                theme: theme === 'dark' ? 'dark_dimmed' : 'light'
+                            }
+                        }
+                    },
+                    'https://giscus.app'
+                );
+            };
+
+            const applyTheme = () => {
+                const root = document.documentElement;
+                const storedTheme = getStoredTheme();
+                const resolvedTheme = storedTheme ?? getSystemTheme();
+
+                if (storedTheme) {
+                    root.dataset.theme = storedTheme;
+                } else {
+                    root.removeAttribute('data-theme');
+                }
+
+                root.dataset.themeResolved = resolvedTheme;
+
+                updateThemeMeta(resolvedTheme);
+                updateHighlightTheme(resolvedTheme);
+                updateToggleLabels(resolvedTheme);
+                window.requestAnimationFrame(() => updateGiscusTheme(resolvedTheme));
+
+                return resolvedTheme;
+            };
+
+            const toggleTheme = () => {
+                const nextTheme = getResolvedTheme() === 'dark' ? 'light' : 'dark';
+
+                try {
+                    window.localStorage.setItem(storageKey, nextTheme);
+                } catch {
+                    return applyTheme();
+                }
+
+                return applyTheme();
+            };
+
+            const clearThemePreference = () => {
+                try {
+                    window.localStorage.removeItem(storageKey);
+                } catch {
+                }
+
+                return applyTheme();
+            };
+
+            window.themeController = {
+                applyTheme,
+                toggleTheme,
+                clearThemePreference
+            };
+
+            applyTheme();
+
+            if (typeof darkMediaQuery.addEventListener === 'function') {
+                darkMediaQuery.addEventListener('change', () => {
+                    if (!getStoredTheme()) {
+                        applyTheme();
+                    }
+                });
+            } else if (typeof darkMediaQuery.addListener === 'function') {
+                darkMediaQuery.addListener(() => {
+                    if (!getStoredTheme()) {
+                        applyTheme();
+                    }
+                });
+            }
+
+            document.addEventListener('click', (event) => {
+                const toggleButton = event.target.closest('[data-theme-toggle]');
+
+                if (!toggleButton) {
+                    return;
+                }
+
+                event.preventDefault();
+                toggleTheme();
+            });
+
+            document.addEventListener('DOMContentLoaded', () => applyTheme());
+            window.addEventListener('pageshow', () => applyTheme());
+        })();
+    </script>
+    <meta id="theme-color-meta" name="theme-color" content="#F7F9FC"/>
     <meta name="color-scheme" content="light dark"/>
     <base href="/"/>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -18,8 +165,8 @@
     <!-- Load local Tailwind CSS instead of CDN -->
     <link rel="stylesheet" href="app.min.css"/>
 
-    <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
-    <link rel="stylesheet" media="(prefers-color-scheme: light)" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+    <link id="hljs-dark-theme" rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
+    <link id="hljs-light-theme" rel="stylesheet" media="(prefers-color-scheme: light)" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
     <HeadOutlet/>
 </head>
 

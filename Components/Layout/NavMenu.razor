@@ -14,34 +14,50 @@
         </a>
     </div>
 
-    <!-- Desktop Navigation -->
-    <nav class="hidden sm:flex items-center gap-1">
-        @foreach (var item in menuItems)
-        {
-            @if (!string.IsNullOrEmpty(item.Name))
+    <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Desktop Navigation -->
+        <nav class="hidden sm:flex items-center gap-1">
+            @foreach (var item in menuItems)
             {
-                <NavLink ActiveClass="nav-link-active"
-                         class="nav-link"
-                         Match="@(item.Link == "" ? NavLinkMatch.All : NavLinkMatch.Prefix)" href="@item.Link">
-                    @item.Name
-                </NavLink>
+                @if (!string.IsNullOrEmpty(item.Name))
+                {
+                    <NavLink ActiveClass="nav-link-active"
+                             class="nav-link"
+                             Match="@(item.Link == "" ? NavLinkMatch.All : NavLinkMatch.Prefix)" href="@item.Link">
+                        @item.Name
+                    </NavLink>
+                }
+                else
+                {
+                    <a href="@item.Link" target="_blank" rel="noopener noreferrer"
+                       class="nav-icon-link ml-2 icon-bounce">
+                        <Svg Icon="item.Icon" SizeClasses="w-5 h-5"/>
+                    </a>
+                }
             }
-            else
-            {
-                <a href="@item.Link" target="_blank" rel="noopener noreferrer"
-                   class="nav-icon-link ml-2 icon-bounce">
-                    <Svg Icon="item.Icon" SizeClasses="w-5 h-5"/>
-                </a>
-            }
-        }
-    </nav>
+        </nav>
 
-    <!-- Mobile Menu Button -->
-    <button id="toggle-button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle Menu" class="nav-toggle sm:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-8 w-8 text-current">
-            <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-        </svg>
-    </button>
+        <button type="button" class="nav-toggle theme-toggle" data-theme-toggle aria-label="Switch to dark theme" title="Switch to dark theme">
+            <span class="theme-toggle-icon theme-icon-moon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-full w-full text-current">
+                    <path d="M21.752 15.002A9.718 9.718 0 0 1 18 15.75C12.615 15.75 8.25 11.385 8.25 6c0-1.33.266-2.597.748-3.752A9.75 9.75 0 1 0 21.752 15.002Z" />
+                </svg>
+            </span>
+            <span class="theme-toggle-icon theme-icon-sun" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-full w-full text-current">
+                    <path d="M12 2.25a.75.75 0 0 1 .75.75v1.386a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75Zm0 15a5.25 5.25 0 1 0 0-10.5 5.25 5.25 0 0 0 0 10.5Zm0 4.5a.75.75 0 0 1 .75-.75v-1.386a.75.75 0 0 0-1.5 0V21a.75.75 0 0 1 .75.75Zm9-9.75a.75.75 0 0 0-.75-.75h-1.386a.75.75 0 0 0 0 1.5H20.25A.75.75 0 0 0 21 12Zm-15.864-.75a.75.75 0 0 0 0 1.5H3.75a.75.75 0 0 0 0-1.5h1.386Zm12.228 6.978a.75.75 0 0 1 1.06 0l.98.98a.75.75 0 1 1-1.06 1.06l-.98-.98a.75.75 0 0 1 0-1.06ZM6.596 6.596a.75.75 0 0 1 1.06 0l.98.98a.75.75 0 1 1-1.06 1.06l-.98-.98a.75.75 0 0 1 0-1.06Zm12.788 1.04a.75.75 0 0 1 0-1.06l.98-.98a.75.75 0 1 1 1.06 1.06l-.98.98a.75.75 0 0 1-1.06 0ZM7.636 17.404a.75.75 0 0 1 0 1.06l-.98.98a.75.75 0 1 1-1.06-1.06l.98-.98a.75.75 0 0 1 1.06 0Z" />
+                </svg>
+            </span>
+            <span class="theme-toggle-label">Theme</span>
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button id="toggle-button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle Menu" class="nav-toggle sm:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-8 w-8 text-current">
+                <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+            </svg>
+        </button>
+    </div>
 
 </header>
 
