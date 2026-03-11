@@ -8,91 +8,71 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                // Core Brand Colors - Logo Purple
                 primary: {
-                    50: '#f5f3ff', // Lightest
-                    100: '#ede9fe',
-                    200: '#ddd6fe',
-                    300: '#c4b5fd',
-                    400: '#a78bfa', // Primary Light
-                    500: '#8b5cf6', // Primary Hover
-                    600: '#764AF1', // Logo Purple (Main Brand)
-                    700: '#5B2DCF', // Primary Active
-                    800: '#3D1A99', // Primary Dark
-                    900: '#2e1065',
-                    950: '#1e0a45',
+                    300: 'rgb(var(--color-accent-soft-rgb) / <alpha-value>)',
+                    400: 'rgb(var(--color-accent-rgb) / <alpha-value>)',
+                    500: 'rgb(var(--color-accent-rgb) / <alpha-value>)',
+                    600: 'rgb(var(--color-accent-rgb) / <alpha-value>)',
+                    700: 'rgb(var(--color-text-primary-rgb) / <alpha-value>)',
                 },
-                // Accent Colors - Neon Cyan
                 accent: {
-                    50: '#ecfeff',
-                    100: '#cffafe',
-                    200: '#a5f3fc',
-                    300: '#67e8f9',
-                    400: '#22d3ee', // Cyan Hover
-                    500: '#06B6D4', // Neon Cyan (AI Highlight)
-                    600: '#0891b2',
-                    700: '#0e7490',
-                    800: '#155e75',
-                    900: '#164e63',
-                    950: '#083344',
+                    100: 'rgb(var(--color-accent-soft-rgb) / <alpha-value>)',
+                    300: 'rgb(var(--color-accent-rgb) / <alpha-value>)',
+                    400: 'rgb(var(--color-accent-rgb) / <alpha-value>)',
+                    500: 'rgb(var(--color-accent-rgb) / <alpha-value>)',
+                    600: 'rgb(var(--color-info-rgb) / <alpha-value>)',
                 },
-                // Accent Pink - Secondary Accent
                 pink: {
-                    400: '#f472b6', // Pink Hover
-                    500: '#ec4899', // Hot Pink (CTAs)
-                    600: '#db2777',
+                    400: 'rgb(var(--color-warning-rgb) / <alpha-value>)',
+                    500: 'rgb(var(--color-warning-rgb) / <alpha-value>)',
+                    600: 'rgb(var(--color-error-rgb) / <alpha-value>)',
                 },
-                // Dark Theme Background Colors (Slate)
                 background: {
-                    DEFAULT: '#0F172A', // Slate 900 (Primary Background)
-                    secondary: '#1E293B', // Slate 800 (Secondary Background)
-                    tertiary: '#020617', // Slate 950 (Tertiary/Absolute Deep)
-                    surface: 'rgba(30, 41, 59, 0.7)', // Slate 800 with opacity
-                    hover: 'rgba(51, 65, 85, 0.8)', // Slate 700 with opacity
-                    active: 'rgba(71, 85, 105, 0.9)', // Surface Active
+                    DEFAULT: 'rgb(var(--color-background-rgb) / <alpha-value>)',
+                    secondary: 'rgb(var(--color-background-secondary-rgb) / <alpha-value>)',
+                    tertiary: 'rgb(var(--color-background-tertiary-rgb) / <alpha-value>)',
+                    surface: 'rgb(var(--color-surface-rgb) / <alpha-value>)',
+                    hover: 'rgb(var(--color-background-secondary-rgb) / <alpha-value>)',
+                    active: 'rgb(var(--color-background-tertiary-rgb) / <alpha-value>)',
                 },
-                // Text Colors (Slate)
                 foreground: {
-                    DEFAULT: '#F8FAFC', // Slate 50 (Primary Text)
-                    secondary: '#CBD5E1', // Slate 300 (Secondary Text)
-                    tertiary: '#94A3B8', // Slate 400 (Tertiary Text)
-                    muted: '#64748B', // Slate 500 (Muted Text)
+                    DEFAULT: 'rgb(var(--color-text-primary-rgb) / <alpha-value>)',
+                    secondary: 'rgb(var(--color-text-secondary-rgb) / <alpha-value>)',
+                    tertiary: 'rgb(var(--color-text-tertiary-rgb) / <alpha-value>)',
+                    muted: 'rgb(var(--color-text-muted-rgb) / <alpha-value>)',
                 },
-                // Status Colors
-                success: '#10B981', // Emerald
-                warning: '#F59E0B', // Amber
-                error: '#EF4444', // Red
-                info: '#3B82F6', // Blue
-                // Border Colors
+                success: 'rgb(var(--color-success-rgb) / <alpha-value>)',
+                warning: 'rgb(var(--color-warning-rgb) / <alpha-value>)',
+                error: 'rgb(var(--color-error-rgb) / <alpha-value>)',
+                info: 'rgb(var(--color-info-rgb) / <alpha-value>)',
                 border: {
-                    DEFAULT: 'rgba(255, 255, 255, 0.08)', // Default Border
-                    light: 'rgba(255, 255, 255, 0.12)', // Highlighted Border
+                    DEFAULT: 'rgb(var(--color-border-rgb) / <alpha-value>)',
+                    light: 'rgb(var(--color-border-light-rgb) / <alpha-value>)',
                 },
-                // Gray scale (Slate)
                 gray: {
-                    50: '#f8fafc',
-                    100: '#f1f5f9',
-                    200: '#e2e8f0',
-                    300: '#cbd5e1',
-                    400: '#94a3b8',
-                    500: '#64748b',
-                    600: '#475569',
-                    700: '#334155',
-                    800: '#1e293b',
-                    900: '#0f172a',
-                    950: '#020617',
+                    50: 'rgb(var(--color-surface-rgb) / <alpha-value>)',
+                    100: 'rgb(var(--color-background-rgb) / <alpha-value>)',
+                    200: 'rgb(var(--color-border-rgb) / <alpha-value>)',
+                    300: 'rgb(var(--color-border-light-rgb) / <alpha-value>)',
+                    400: 'rgb(var(--color-text-muted-rgb) / <alpha-value>)',
+                    500: 'rgb(var(--color-text-secondary-rgb) / <alpha-value>)',
+                    600: 'rgb(var(--color-text-primary-rgb) / <alpha-value>)',
+                    700: 'rgb(var(--color-text-primary-rgb) / <alpha-value>)',
+                    800: 'rgb(var(--color-background-secondary-rgb) / <alpha-value>)',
+                    900: 'rgb(var(--color-background-tertiary-rgb) / <alpha-value>)',
                 },
             },
             fontFamily: {
-                sans: ['Inter', 'Arial', 'sans-serif'],
+                sans: ['Manrope', 'Segoe UI', 'sans-serif'],
+                serif: ['Source Serif 4', 'Georgia', 'serif'],
                 mono: ['JetBrains Mono', 'Consolas', 'monospace'],
             },
             boxShadow: {
-                'glow-primary': '0 0 20px rgba(118, 74, 241, 0.3)', // Logo Purple
-                'glow-accent': '0 0 20px rgba(6, 182, 212, 0.3)', // Neon Cyan
+                'glow-primary': '0 16px 40px -22px rgba(40, 94, 158, 0.35)',
+                'glow-accent': '0 16px 40px -22px rgba(3, 105, 161, 0.28)',
             },
             borderColor: {
-                divider: 'rgba(255, 255, 255, 0.06)',
+                divider: 'rgb(var(--color-border-rgb) / <alpha-value>)',
             },
         },
     },
