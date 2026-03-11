@@ -1,10 +1,14 @@
 @inject NavigationManager Nm
 
-<header class="flex items-center justify-between py-8">
+<header class="glass-nav sticky top-0 z-[100] mb-5 flex items-center justify-between gap-4 px-4 py-3 sm:top-4 sm:mt-4 sm:mb-0 sm:px-5 sm:py-4">
     <!-- Logo -->
     <div>
-        <a href="" class="group">
-            <span class="text-xl font-bold text-foreground hover:text-accent-400 transition-colors">@WebsiteKeys.Title</span>
+        <a href="" class="group inline-flex items-center gap-3">
+            <span class="brand-mark">BP</span>
+            <span>
+                <span class="block text-sm font-semibold text-foreground transition-colors">@WebsiteKeys.Title</span>
+                <span class="block text-xs text-foreground-muted">@WebsiteKeys.Username</span>
+            </span>
         </a>
     </div>
 
@@ -14,8 +18,8 @@
         {
             @if (!string.IsNullOrEmpty(item.Name))
             {
-                <NavLink ActiveClass="bg-accent-400/10 text-accent-400 border-accent-400/30"
-                         class="px-4 py-2 rounded-lg font-medium text-foreground-secondary hover:text-accent-400 hover:bg-accent-400/5 border border-transparent transition-all duration-200"
+                <NavLink ActiveClass="bg-white/6 text-foreground border-white/10"
+                         class="px-4 py-2 rounded-lg font-medium text-foreground-secondary hover:text-foreground hover:bg-white/5 border border-transparent transition-all duration-200"
                          Match="@(item.Link == "" ? NavLinkMatch.All : NavLinkMatch.Prefix)" href="@item.Link">
                     @item.Name
                 </NavLink>
@@ -23,7 +27,7 @@
             else
             {
                 <a href="@item.Link" target="_blank" rel="noopener noreferrer"
-                   class="ml-2 p-2 rounded-lg text-foreground-muted hover:text-accent-400 hover:bg-accent-400/5 border border-transparent hover:border-accent-400/20 transition-all duration-200 icon-bounce">
+                   class="ml-2 p-2 rounded-lg text-foreground-muted hover:text-foreground hover:bg-white/5 border border-transparent hover:border-white/10 transition-all duration-200 icon-bounce">
                     <Svg Icon="item.Icon" SizeClasses="w-5 h-5"/>
                 </a>
             }
@@ -31,32 +35,33 @@
     </nav>
 
     <!-- Mobile Menu Button -->
-    <button id="toggle-button" aria-label="Toggle Menu" class="sm:hidden p-2 rounded-lg hover:bg-accent-400/10 transition-colors">
+    <button id="toggle-button" aria-label="Toggle Menu" class="sm:hidden p-2 rounded-lg hover:bg-white/5 transition-colors">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-8 w-8 text-foreground">
             <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
         </svg>
     </button>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-50 translate-x-full transform duration-300 ease-in-out bg-background">
-        <!-- Close button -->
-        <div class="flex justify-end p-6">
-            <button id="close-mobile-menu-button" class="p-2 rounded-lg hover:bg-accent-400/10 transition-colors" aria-label="Close Menu">
+</header>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu-overlay hidden sm:hidden">
+    <div class="mx-auto min-h-screen max-w-3xl px-4 pt-4">
+        <div class="flex justify-end">
+            <button id="close-mobile-menu-button" class="p-2 rounded-lg hover:bg-white/5 transition-colors" aria-label="Close Menu">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-8 h-8 text-foreground">
                     <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                 </svg>
             </button>
         </div>
 
-        <!-- Mobile nav links -->
-        <nav class="px-6 pt-4">
+        <nav class="mobile-menu-panel mt-10 space-y-2 rounded-2xl border border-border p-6 shadow-2xl">
             @foreach (var item in menuItems)
             {
                 @if (!string.IsNullOrEmpty(item.Name))
                 {
-                    <div class="py-3">
-                        <NavLink ActiveClass="text-accent-400"
-                                 class="text-2xl font-bold text-foreground hover:text-accent-400 transition-colors block"
+                    <div class="py-2">
+                        <NavLink ActiveClass="text-foreground"
+                                 class="block text-3xl font-bold text-foreground-secondary transition-colors hover:text-foreground"
                                  Match="@(item.Link == "" ? NavLinkMatch.All : NavLinkMatch.Prefix)"
                                  href="@item.Link">
                             @item.Name
@@ -65,20 +70,20 @@
                 }
                 else
                 {
-                    <div class="py-3">
+                    <div class="py-2">
                         <a href="@item.Link" target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center gap-2 text-foreground-muted hover:text-accent-400 transition-colors">
+                           class="inline-flex items-center gap-3 text-foreground-muted transition-colors hover:text-foreground">
                             <Svg Icon="item.Icon" SizeClasses="w-6 h-6"/>
-                            <span class="text-lg">GitHub</span>
+                            <span class="text-lg">@item.Label</span>
                         </a>
                     </div>
                 }
             }
         </nav>
     </div>
-</header>
+</div>
 <script>
-    const toggleMobileMenu = () => document.querySelector('#mobile-menu').classList.toggle('translate-x-full');
+    const toggleMobileMenu = () => document.querySelector('#mobile-menu').classList.toggle('hidden');
 
     document.querySelector('#toggle-button').addEventListener('click', toggleMobileMenu);
     document.querySelector('#close-mobile-menu-button').addEventListener('click', toggleMobileMenu);
@@ -92,8 +97,10 @@
         new("Home", ""),
         new("Blog", "blog"),
         new("Tags", "tags"),
-        new("", WebsiteKeys.GitHubRepo, Svg.Icons.Github)
+        new("", WebsiteKeys.GitHubProfile, Svg.Icons.Github, "GitHub"),
+        new("", WebsiteKeys.LinkedIn, Svg.Icons.LinkedIn, "LinkedIn"),
+        new("", WebsiteKeys.X, Svg.Icons.X, "X")
     ];
 
-    record MenuItem(string Name, string Link, Svg.Icons? Icon = null);
+    record MenuItem(string Name, string Link, Svg.Icons? Icon = null, string? Label = null);
 }

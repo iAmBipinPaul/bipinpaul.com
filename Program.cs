@@ -46,10 +46,16 @@ app.Run();
 
 public static class WebsiteKeys
 {
-    public const string GitHubRepo = "https://github.com/iAmBipinPaul/bipinpaul.com";
+    public const string Username = "iAmBipinPaul";
+    public const string GitHubProfile = "https://github.com/iAmBipinPaul";
+    public const string GitHubRepo = $"{GitHubProfile}/bipinpaul.com";
+    public const string LinkedIn = "https://www.linkedin.com/in/iambipinpaul";
     public const string X = "https://x.com/iAmBipinPaul";
+    public const string Facebook = "https://www.facebook.com/iAmBipinPaul";
+    public const string Bluesky = "https://bsky.app/profile/bipinpaul.com";
     public const string Title = "Bipin Paul";
+    public const string Tagline = ".NET, Blazor, Azure, and cloud engineering from Nepal";
     public const string BlogPostStorageAddress = $"{GitHubRepo}/tree/master/Content/Blog";
-    public const string BlogLead = "A personal blog sharing insights and experiences.";
+    public const string BlogLead = "Notes on ASP.NET Core, Blazor, Azure, and pragmatic software delivery.";
     public const string BlogPostUrl = "https://bipinpaul.com";
 }
