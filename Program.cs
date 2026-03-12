@@ -58,4 +58,8 @@ public static class WebsiteKeys
     public const string BlogPostStorageAddress = $"{GitHubRepo}/tree/master/Content/Blog";
     public const string BlogLead = "Notes on ASP.NET Core, Blazor, Azure, and pragmatic software delivery.";
     public const string BlogPostUrl = "https://bipinpaul.com";
+    public const string ResumeFilePath = "/Resume/Bipin_Paul_Resume_.pdf";
+    public const string ResumePageUrl = $"{BlogPostUrl}/#resume";
+    public const string ResumePreviewUrl = $"{BlogPostUrl}{ResumeFilePath}";
+    public const string ResumeDownloadUrl = ResumePreviewUrl;
 }
