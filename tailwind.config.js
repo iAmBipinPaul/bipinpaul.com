@@ -68,8 +68,8 @@ module.exports = {
                 mono: ['JetBrains Mono', 'Consolas', 'monospace'],
             },
             boxShadow: {
-                'glow-primary': '0 16px 40px -22px rgba(40, 94, 158, 0.35)',
-                'glow-accent': '0 16px 40px -22px rgba(3, 105, 161, 0.28)',
+                'glow-primary': '0 16px 40px -22px rgba(15, 118, 110, 0.35)',
+                'glow-accent': '0 16px 40px -22px rgba(15, 118, 110, 0.28)',
             },
             borderColor: {
                 divider: 'rgb(var(--color-border-rgb) / <alpha-value>)',

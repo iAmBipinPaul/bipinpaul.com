@@ -7,14 +7,14 @@
 
     --color-background: #F7F9FC;
     --color-background-rgb: 247 249 252;
-    --color-background-secondary: #EEF2F7;
-    --color-background-secondary-rgb: 238 242 247;
-    --color-background-tertiary: #E8EEF5;
-    --color-background-tertiary-rgb: 232 238 245;
+    --color-background-secondary: #EFF3F2;
+    --color-background-secondary-rgb: 239 243 242;
+    --color-background-tertiary: #E8EFEE;
+    --color-background-tertiary-rgb: 232 239 238;
     --color-surface: #FFFFFF;
     --color-surface-rgb: 255 255 255;
-    --color-surface-subtle: #F8FBFF;
-    --color-surface-subtle-rgb: 248 251 255;
+    --color-surface-subtle: #F4F9F8;
+    --color-surface-subtle-rgb: 244 249 248;
 
     --color-text-primary: #2A3036;
     --color-text-primary-rgb: 42 48 54;
@@ -25,19 +25,29 @@
     --color-text-muted: #94A3B8;
     --color-text-muted-rgb: 148 163 184;
 
-    --color-accent: #285E9E;
-    --color-accent-rgb: 40 94 158;
-    --color-accent-strong: #1F4F87;
-    --color-accent-soft: #DCE9F8;
-    --color-accent-soft-rgb: 220 233 248;
+    --color-accent: #0F766E;
+    --color-accent-rgb: 15 118 110;
+    --color-accent-strong: #115E59;
+    --color-accent-soft: #D8EFEC;
+    --color-accent-soft-rgb: 216 239 236;
+    --color-accent-active: #134E4A;
+    --color-accent-secondary: #946B0C;
+    --color-accent-secondary-rgb: 148 107 12;
 
-    --color-border: #E2E8F0;
-    --color-border-rgb: 226 232 240;
-    --color-border-light: #CBD5E1;
-    --color-border-light-rgb: 203 213 225;
+    --color-border: #C6D1CF;
+    --color-border-rgb: 198 209 207;
+    --color-border-light: #B4C4C2;
+    --color-border-light-rgb: 180 196 194;
     --color-disabled-text: #94A3B8;
-    --color-disabled-bg: #F1F5F9;
-    --color-focus-ring: #93C5FD;
+    --color-disabled-bg: #EEF3F2;
+    --color-focus-ring: #0F766E;
+    --color-link-visited: #4B6E6A;
+
+    --color-btn-primary-bg: #0F766E;
+    --color-btn-primary-bg-rgb: 15 118 110;
+    --color-btn-primary-hover: #115E59;
+    --color-btn-primary-active: #134E4A;
+    --color-btn-primary-text: #FFFFFF;
 
     --color-success: #166534;
     --color-success-rgb: 22 101 52;
@@ -51,7 +61,7 @@
     --shadow-sm: 0 10px 25px -18px rgba(42, 48, 54, 0.18);
     --shadow-md: 0 18px 40px -26px rgba(42, 48, 54, 0.2);
     --shadow-lg: 0 28px 60px -34px rgba(42, 48, 54, 0.24);
-    --shadow-focus: 0 0 0 4px rgba(147, 197, 253, 0.45);
+    --shadow-focus: 0 0 0 4px rgba(15, 118, 110, 0.35);
 
     --radius-sm: 0.5rem;
     --radius-md: 0.875rem;
@@ -70,39 +80,43 @@
 :root[data-theme='dark'] {
     color-scheme: dark;
 
-    --color-background: #111827;
-    --color-background-rgb: 17 24 39;
-    --color-background-secondary: #172033;
-    --color-background-secondary-rgb: 23 32 51;
-    --color-background-tertiary: #1B2638;
-    --color-background-tertiary-rgb: 27 38 56;
-    --color-surface: #1F2937;
-    --color-surface-rgb: 31 41 55;
-    --color-surface-subtle: #243142;
-    --color-surface-subtle-rgb: 36 49 66;
+    --color-background: #0C1A1C;
+    --color-background-rgb: 12 26 28;
+    --color-background-secondary: #0F2224;
+    --color-background-secondary-rgb: 15 34 36;
+    --color-background-tertiary: #132829;
+    --color-background-tertiary-rgb: 19 40 41;
+    --color-surface: #152A2D;
+    --color-surface-rgb: 21 42 45;
+    --color-surface-subtle: #1A3336;
+    --color-surface-subtle-rgb: 26 51 54;
 
     --color-text-primary: #E2E8F0;
     --color-text-primary-rgb: 226 232 240;
-    --color-text-secondary: #94A3B8;
-    --color-text-secondary-rgb: 148 163 184;
-    --color-text-tertiary: #AAB6C6;
-    --color-text-tertiary-rgb: 170 182 198;
-    --color-text-muted: #475569;
-    --color-text-muted-rgb: 71 85 105;
+    --color-text-secondary: #8DA09D;
+    --color-text-secondary-rgb: 141 160 157;
+    --color-text-tertiary: #9AB3B0;
+    --color-text-tertiary-rgb: 154 179 176;
+    --color-text-muted: #4F6664;
+    --color-text-muted-rgb: 79 102 100;
 
-    --color-accent: #60A5FA;
-    --color-accent-rgb: 96 165 250;
-    --color-accent-strong: #93C5FD;
-    --color-accent-soft: #1E3A5F;
-    --color-accent-soft-rgb: 30 58 95;
+    --color-accent: #2DD4BF;
+    --color-accent-rgb: 45 212 191;
+    --color-accent-strong: #5EEAD4;
+    --color-accent-soft: #0D2D2F;
+    --color-accent-soft-rgb: 13 45 47;
+    --color-accent-active: #14B8A6;
+    --color-accent-secondary: #E8B931;
+    --color-accent-secondary-rgb: 232 185 49;
 
-    --color-border: #334155;
-    --color-border-rgb: 51 65 85;
-    --color-border-light: #475569;
-    --color-border-light-rgb: 71 85 105;
-    --color-disabled-text: #475569;
-    --color-disabled-bg: #1E293B;
-    --color-focus-ring: #3B82F6;
+    --color-border: #263D3F;
+    --color-border-rgb: 38 61 63;
+    --color-border-light: #355455;
+    --color-border-light-rgb: 53 84 85;
+    --color-disabled-text: #4F6664;
+    --color-disabled-bg: #132427;
+    --color-focus-ring: #2DD4BF;
+    --color-link-visited: #73AAA4;
 
     --color-success: #4ADE80;
     --color-success-rgb: 74 222 128;
@@ -116,44 +130,48 @@
     --shadow-sm: 0 10px 24px -18px rgba(0, 0, 0, 0.55);
     --shadow-md: 0 18px 40px -24px rgba(0, 0, 0, 0.6);
     --shadow-lg: 0 28px 56px -30px rgba(0, 0, 0, 0.72);
-    --shadow-focus: 0 0 0 4px rgba(59, 130, 246, 0.3);
+    --shadow-focus: 0 0 0 4px rgba(45, 212, 191, 0.3);
 }
 
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme]) {
-        --color-background: #111827;
-        --color-background-rgb: 17 24 39;
-        --color-background-secondary: #172033;
-        --color-background-secondary-rgb: 23 32 51;
-        --color-background-tertiary: #1B2638;
-        --color-background-tertiary-rgb: 27 38 56;
-        --color-surface: #1F2937;
-        --color-surface-rgb: 31 41 55;
-        --color-surface-subtle: #243142;
-        --color-surface-subtle-rgb: 36 49 66;
+        --color-background: #0C1A1C;
+        --color-background-rgb: 12 26 28;
+        --color-background-secondary: #0F2224;
+        --color-background-secondary-rgb: 15 34 36;
+        --color-background-tertiary: #132829;
+        --color-background-tertiary-rgb: 19 40 41;
+        --color-surface: #152A2D;
+        --color-surface-rgb: 21 42 45;
+        --color-surface-subtle: #1A3336;
+        --color-surface-subtle-rgb: 26 51 54;
 
         --color-text-primary: #E2E8F0;
         --color-text-primary-rgb: 226 232 240;
-        --color-text-secondary: #94A3B8;
-        --color-text-secondary-rgb: 148 163 184;
-        --color-text-tertiary: #AAB6C6;
-        --color-text-tertiary-rgb: 170 182 198;
-        --color-text-muted: #475569;
-        --color-text-muted-rgb: 71 85 105;
+        --color-text-secondary: #8DA09D;
+        --color-text-secondary-rgb: 141 160 157;
+        --color-text-tertiary: #9AB3B0;
+        --color-text-tertiary-rgb: 154 179 176;
+        --color-text-muted: #4F6664;
+        --color-text-muted-rgb: 79 102 100;
 
-        --color-accent: #60A5FA;
-        --color-accent-rgb: 96 165 250;
-        --color-accent-strong: #93C5FD;
-        --color-accent-soft: #1E3A5F;
-        --color-accent-soft-rgb: 30 58 95;
+        --color-accent: #2DD4BF;
+        --color-accent-rgb: 45 212 191;
+        --color-accent-strong: #5EEAD4;
+        --color-accent-soft: #0D2D2F;
+        --color-accent-soft-rgb: 13 45 47;
+        --color-accent-active: #14B8A6;
+        --color-accent-secondary: #E8B931;
+        --color-accent-secondary-rgb: 232 185 49;
 
-        --color-border: #334155;
-        --color-border-rgb: 51 65 85;
-        --color-border-light: #475569;
-        --color-border-light-rgb: 71 85 105;
-        --color-disabled-text: #475569;
-        --color-disabled-bg: #1E293B;
-        --color-focus-ring: #3B82F6;
+        --color-border: #263D3F;
+        --color-border-rgb: 38 61 63;
+        --color-border-light: #355455;
+        --color-border-light-rgb: 53 84 85;
+        --color-disabled-text: #4F6664;
+        --color-disabled-bg: #132427;
+        --color-focus-ring: #2DD4BF;
+        --color-link-visited: #73AAA4;
 
         --color-success: #4ADE80;
         --color-success-rgb: 74 222 128;
@@ -167,7 +185,7 @@
         --shadow-sm: 0 10px 24px -18px rgba(0, 0, 0, 0.55);
         --shadow-md: 0 18px 40px -24px rgba(0, 0, 0, 0.6);
         --shadow-lg: 0 28px 56px -30px rgba(0, 0, 0, 0.72);
-        --shadow-focus: 0 0 0 4px rgba(59, 130, 246, 0.3);
+        --shadow-focus: 0 0 0 4px rgba(45, 212, 191, 0.3);
     }
 }
 
@@ -280,7 +298,7 @@
     .site-shell::before {
         background:
             radial-gradient(circle at 10% 10%, rgba(var(--color-accent-rgb), 0.08), transparent 26%),
-            radial-gradient(circle at 92% 18%, rgba(var(--color-info-rgb), 0.08), transparent 22%);
+            radial-gradient(circle at 92% 18%, rgba(var(--color-accent-secondary-rgb), 0.06), transparent 22%);
     }
 
     .site-shell::after {
@@ -369,15 +387,20 @@
 
     .btn-primary {
         padding: 0.95rem 1.35rem;
-        background: var(--color-accent);
-        color: var(--color-surface);
-        border: 1px solid rgba(var(--color-accent-rgb), 0.9);
-        box-shadow: 0 18px 38px -24px rgba(var(--color-accent-rgb), 0.55);
+        background: var(--color-btn-primary-bg);
+        color: var(--color-btn-primary-text);
+        border: 1px solid rgba(var(--color-btn-primary-bg-rgb), 0.9);
+        box-shadow: 0 18px 38px -24px rgba(var(--color-btn-primary-bg-rgb), 0.55);
     }
 
     .btn-primary:hover {
-        background: var(--color-accent-strong);
+        background: var(--color-btn-primary-hover);
         transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+        background: var(--color-btn-primary-active);
+        transform: translateY(0);
     }
 
     .btn-secondary,
@@ -426,9 +449,9 @@
 
     .skill-tag-pink,
     .pill-accent {
-        background: rgba(var(--color-accent-rgb), 0.12);
-        border-color: rgba(var(--color-accent-rgb), 0.2);
-        color: var(--color-accent);
+        background: rgba(var(--color-accent-secondary-rgb), 0.12);
+        border-color: rgba(var(--color-accent-secondary-rgb), 0.2);
+        color: var(--color-accent-secondary);
     }
 
     .skill-tag-muted,
@@ -655,7 +678,7 @@
         position: absolute;
         inset: 0 0 auto;
         height: 4px;
-        background: linear-gradient(90deg, rgba(var(--color-accent-rgb), 0.36), rgba(var(--color-info-rgb), 0.4));
+        background: linear-gradient(90deg, rgba(var(--color-accent-rgb), 0.36), rgba(var(--color-accent-secondary-rgb), 0.4));
         transform: scaleX(0);
         transform-origin: left;
         transition: transform var(--anim-slow);
@@ -813,6 +836,10 @@
 
     .blog-content a:hover {
         color: var(--color-accent-strong);
+    }
+
+    .blog-content a:visited {
+        color: var(--color-link-visited);
     }
 
     .blog-content code {
