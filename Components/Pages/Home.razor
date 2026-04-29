@@ -1,216 +1,454 @@
-﻿@page "/"
-
+@page "/"
 
 <HeadContent>
-    <title>Bipin Paul | iAmBipinPaul | .NET, Blazor, Azure</title>
-    <meta name="description" content="Personal site of Bipin Paul (iAmBipinPaul): Nepal-based software engineer focused on ASP.NET Core, Blazor, Azure, cloud delivery, and dependable product engineering."/>
-    <meta name="keywords" content="Bipin Paul, iAmBipinPaul, .NET, C#, ASP.NET Core, Blazor, Azure, Cloud, Developer, Docker, Cosmos DB, SQL Server, Entity Framework Core, Nepal"/>
+    <title>Bipin Paul | iambipinpaul | .NET & Azure Cloud Engineer</title>
+    <meta name="description" content="Bipin Paul (iambipinpaul) is a Nepal-based .NET and Azure cloud engineer working with ASP.NET Core, Blazor, C#, containers, CI/CD, and data-backed applications."/>
+    <meta name="keywords" content="Bipin Paul, iambipinpaul, .NET, C#, ASP.NET Core, Blazor, Azure, Docker, GitHub Actions, Azure Pipelines, SQL Server, PostgreSQL, Cosmos DB, Entity Framework Core, Nepal"/>
     <meta name="author" content="Bipin Paul"/>
+    <link rel="canonical" href="@WebsiteKeys.BlogPostUrl"/>
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Bipin Paul | .NET, Blazor, Azure"/>
-    <meta property="og:description" content="Nepal-based software engineer building dependable .NET, Blazor, and cloud systems."/>
+    <meta property="og:type" content="profile"/>
+    <meta property="og:title" content="Bipin Paul | .NET & Azure Cloud Engineer"/>
+    <meta property="og:description" content="Nepal-based engineer building ASP.NET Core, Blazor, Azure, containerized, and data-backed applications."/>
     <meta property="og:image" content="@(@WebsiteKeys.BlogPostUrl + "/" + "images/bipinpaul.jpeg")"/>
     <meta property="og:url" content="@WebsiteKeys.BlogPostUrl"/>
+    <meta property="og:site_name" content="Bipin Paul"/>
 
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:title" content="Bipin Paul | .NET, Blazor, Azure"/>
-    <meta name="twitter:description" content="Nepal-based software engineer building dependable .NET, Blazor, and cloud systems."/>
+    <meta name="twitter:title" content="Bipin Paul | .NET & Azure Cloud Engineer"/>
+    <meta name="twitter:description" content="Nepal-based engineer building ASP.NET Core, Blazor, Azure, containerized, and data-backed applications."/>
     <meta name="twitter:image" content="@(@WebsiteKeys.BlogPostUrl + "/" + "images/bipinpaul.jpeg")"/>
+
+    <script type="application/ld+json">
+    {
+      "@@context": "https://schema.org",
+      "@@type": "Person",
+      "@@id": "https://bipinpaul.com/#bipin-paul",
+      "name": "Bipin Paul",
+      "alternateName": "iambipinpaul",
+      "url": "https://bipinpaul.com",
+      "image": "https://bipinpaul.com/images/bipinpaul.jpeg",
+      "jobTitle": ".NET and Azure Cloud Engineer",
+      "address": {
+        "@@type": "PostalAddress",
+        "addressCountry": "NP"
+      },
+      "knowsAbout": [
+        "ASP.NET Core",
+        "Blazor",
+        "C#",
+        "Azure",
+        "Docker",
+        "GitHub Actions",
+        "Azure Pipelines",
+        "Entity Framework Core",
+        "SQL Server",
+        "PostgreSQL",
+        "Cosmos DB"
+      ],
+      "sameAs": [
+        "https://github.com/iambipinpaul",
+        "https://www.linkedin.com/in/iambipinpaul",
+        "https://x.com/iambipinpaul",
+        "https://dev.to/iambipinpaul"
+      ]
+    }
+    </script>
 </HeadContent>
 
-<div class="py-8 lg:py-12 space-y-16">
-    <section class="grid gap-6 lg:grid-cols-[minmax(0,1.7fr)_minmax(320px,0.9fr)] lg:items-start">
-        <div class="hero-shell glass-card p-6 md:p-8 lg:p-10">
-            <p class="section-kicker">Software engineer based in Nepal</p>
+@* ================ HERO ================ *@
+<header class="hero-section">
+    <div class="grid gap-10 lg:grid-cols-[minmax(0,1.45fr)_minmax(280px,1fr)] lg:items-center">
+        <div>
+            <span class="eyebrow">
+                <span class="eyebrow-dot"></span>
+                <span>Independent .NET &amp; Azure engineer &middot; Nepal</span>
+            </span>
 
-            <div class="space-y-6">
-                <h1 class="max-w-3xl text-balance text-4xl font-extrabold tracking-tight text-foreground lg:text-[3.45rem] lg:leading-[1.02] xl:text-[3.7rem]">
-                    I build <span class="text-link">.NET, Blazor, and Azure</span> applications.
-                </h1>
+            <h1 class="hero-title mt-6">
+                Building software the way
+                <span class="hero-subtitle">production teams actually need it.</span>
+            </h1>
 
-                <p class="max-w-2xl text-lg leading-8 text-foreground-secondary lg:text-[1.1rem]">
-                    I work across backend systems, web apps, and cloud delivery, with most of my day-to-day work centered on ASP.NET Core and Blazor.
-                </p>
-
-                <div class="flex flex-wrap gap-2 text-sm text-foreground-secondary">
-                    <span class="skill-tag text-xs">ASP.NET Core</span>
-                    <span class="skill-tag text-xs">Blazor</span>
-                    <span class="skill-tag text-xs">Azure</span>
-                    <span class="skill-tag text-xs">Entity Framework Core</span>
-                    <span class="skill-tag-muted text-xs">.NET Foundation member</span>
-                </div>
-
-                <div class="flex flex-wrap gap-3 pt-1">
-                    <a href="/blog" class="btn-primary inline-flex items-center gap-2">
-                        <span>Read the blog</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a>
-                    <a href="@WebsiteKeys.GitHubProfile" target="_blank" rel="noopener noreferrer"
-                       class="btn-secondary">
-                        <Svg Icon="Svg.Icons.Github" SizeClasses="w-4 h-4"/>
-                        <span>GitHub profile</span>
-                    </a>
-                </div>
-
-                <div class="grid gap-3 pt-4 sm:grid-cols-3">
-                    <div class="metric-card">
-                        <span class="metric-card-value">7+</span>
-                        <p class="metric-card-label">years in production software</p>
-                    </div>
-                    <div class="metric-card">
-                        <span class="metric-card-value">Backend-first</span>
-                        <p class="metric-card-label">APIs, integrations, and cloud systems</p>
-                    </div>
-                    <div class="metric-card">
-                        <span class="metric-card-value">Writing</span>
-                        <p class="metric-card-label">Notes and articles from real work</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <aside class="profile-rail p-6 lg:sticky lg:top-28">
-            <div class="flex items-center gap-4">
-                <img src="images/bipinpaul.jpeg" alt="Bipin Paul"
-                     class="avatar-frame h-20 w-20 rounded-2xl object-cover shadow-xl"/>
-                <div>
-                    <p class="text-lg font-semibold text-foreground">Bipin Paul</p>
-                    <p class="text-sm text-foreground-secondary">@WebsiteKeys.Username</p>
-                    <p class="text-sm text-foreground-muted">Janakpur • Kathmandu • Nepal</p>
-                </div>
-            </div>
-
-            <div class="mt-6 space-y-2 section-divider pt-5 text-sm leading-relaxed text-foreground-secondary">
-                <p>Software Engineer specializing in the .NET ecosystem, focused on building scalable and reliable backend systems.</p>
-            </div>
-
-            <div class="mt-6 space-y-3">
-                <a class="platform-link" href="@WebsiteKeys.GitHubProfile" target="_blank" rel="noopener noreferrer">
-                    <span>GitHub</span>
-                    <span class="text-foreground-muted">@WebsiteKeys.Username</span>
-                </a>
-                <a class="platform-link" href="@WebsiteKeys.X" target="_blank" rel="noopener noreferrer">
-                    <span>X</span>
-                    <span class="text-foreground-muted">@@iAmBipinPaul</span>
-                </a>
-                <a class="platform-link" href="@WebsiteKeys.LinkedIn" target="_blank" rel="noopener noreferrer">
-                    <span>LinkedIn</span>
-                    <span class="text-foreground-muted">/in/iambipinpaul</span>
-                </a>
-                <a class="platform-link" href="@WebsiteKeys.Bluesky" target="_blank" rel="noopener noreferrer">
-                    <span>Bluesky</span>
-                    <span class="text-foreground-muted">bipinpaul.com</span>
-                </a>
-            </div>
-
-            <div id="resume" class="mt-6 section-divider pt-5">
-                <div class="rounded-[1.35rem] border border-border/90 bg-surface/75 p-5 shadow-sm">
-                    <p class="section-kicker mb-2">Resume</p>
-                    <h2 class="text-lg font-semibold text-foreground">View or download my resume</h2>
-                    <p class="mt-2 text-sm leading-6 text-foreground-secondary">
-                        A detailed overview of my professional background, technical expertise in the .NET ecosystem, and track record of delivering robust software solutions.
-                    </p>
-
-                    <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-                        <a href="@WebsiteKeys.ResumePreviewUrl"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="btn-primary w-full">
-                            <span>Open in new tab</span>
-                        </a>
-                        <a href="@WebsiteKeys.ResumeDownloadUrl"
-                           download="Bipin_Paul_Resume.pdf"
-                           class="btn-secondary w-full">
-                            <span>Download PDF</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </aside>
-    </section>
-
-    <section class="section-divider pt-12">
-        <div class="max-w-2xl">
-            <p class="section-kicker">Focus</p>
-            <h2 class="text-3xl font-bold text-foreground lg:text-4xl">Core areas I spend time in.</h2>
-        </div>
-
-        <div class="mt-8 grid gap-6 md:grid-cols-2">
-            <div class="glass-card p-6">
-                <p class="section-kicker mb-3">Core stack</p>
-                <h3 class="text-2xl font-semibold text-foreground">ASP.NET Core and Blazor</h3>
-                <p class="mt-3 text-foreground-tertiary">APIs, application logic, and product-facing web applications.</p>
-                <div class="mt-4 flex flex-wrap gap-2">
-                    <span class="skill-tag text-xs">ASP.NET Core</span>
-                    <span class="skill-tag text-xs">Blazor</span>
-                    <span class="skill-tag text-xs">C#</span>
-                    <span class="skill-tag text-xs">Minimal APIs</span>
-                </div>
-            </div>
-
-            <div class="glass-card p-6">
-                <p class="section-kicker mb-3">Cloud and integration</p>
-                <h3 class="text-2xl font-semibold text-foreground">Azure and delivery</h3>
-                <p class="mt-3 text-foreground-tertiary">I regularly work with Azure services, containers, messaging, and CI/CD.</p>
-                <div class="mt-4 flex flex-wrap gap-2">
-                    <span class="skill-tag-primary text-xs">Azure Functions</span>
-                    <span class="skill-tag-primary text-xs">Service Bus</span>
-                    <span class="skill-tag-primary text-xs">Cosmos DB</span>
-                    <span class="skill-tag-primary text-xs">Docker</span>
-                </div>
-            </div>
-
-            <div class="glass-card p-6">
-                <p class="section-kicker mb-3">Data and persistence</p>
-                <h3 class="text-2xl font-semibold text-foreground">Structured data</h3>
-                <p class="mt-3 text-foreground-tertiary">Most projects involve relational data, EF Core, and predictable persistence.</p>
-                <div class="mt-4 flex flex-wrap gap-2">
-                    <span class="skill-tag-pink text-xs">SQL Server</span>
-                    <span class="skill-tag-pink text-xs">PostgreSQL</span>
-                    <span class="skill-tag-pink text-xs">Entity Framework Core</span>
-                    <span class="skill-tag-pink text-xs">Cosmos DB</span>
-                </div>
-            </div>
-
-            <div class="glass-card p-6">
-                <p class="section-kicker mb-3">Writing and OSS</p>
-                <h3 class="text-2xl font-semibold text-foreground">Writing and open source</h3>
-                <p class="mt-3 text-foreground-tertiary">I write about patterns, experiments, and implementation details worth keeping.</p>
-                <div class="mt-4 flex flex-wrap gap-2">
-                    <span class="skill-tag text-xs">Technical blogging</span>
-                    <span class="skill-tag text-xs">Open source</span>
-                    <span class="skill-tag text-xs">Sample apps</span>
-                    <span class="skill-tag text-xs">Developer education</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-divider pt-12">
-        <div class="text-center mb-10">
-            <p class="section-kicker mb-3">Latest writing</p>
-            <h2 class="text-2xl font-extrabold text-foreground sm:text-3xl md:text-4xl mb-3">Recent writing</h2>
-            <p class="text-foreground-muted">
-                Notes from projects, experiments, and day-to-day engineering work.
+            <p class="hero-lead">
+                I'm Bipin Paul. I design, build, and ship backend systems, web apps, and Azure-hosted services with ASP.NET Core, Blazor, and C&#35;. Most days I'm somewhere between API design, database modelling, deployment pipelines, and the things that keep production calm.
             </p>
+
+            <div class="mt-7 flex flex-wrap gap-3">
+                <a href="@WebsiteKeys.GitHubProfile" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                    <Svg Icon="Svg.Icons.Github" SizeClasses="w-4 h-4"/>
+                    <span>See work on GitHub</span>
+                </a>
+                <a href="/blog" class="btn-secondary">
+                    <span>Read the blog</span>
+                </a>
+                <a href="#resume" class="ak-action-link">
+                    <span>Open resume</span>
+                    <span class="ak-action-link-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+            </div>
         </div>
 
+        <aside class="identity-summary">
+            <div class="flex items-center gap-4">
+                <div class="identity-summary-photo">
+                    <img src="images/bipinpaul.jpeg" alt="Bipin Paul" loading="lazy"/>
+                </div>
+                <div>
+                    <p class="identity-summary-name">Bipin Paul</p>
+                    <p class="identity-summary-handle">@@@WebsiteKeys.Username</p>
+                </div>
+            </div>
+
+            <p class="identity-summary-role">
+                .NET &amp; Azure cloud engineer working on ERP, QMS, and product platforms &mdash; from API design to delivery.
+            </p>
+
+            <div class="identity-summary-meta">
+                <span>Kathmandu</span>
+                <span class="identity-summary-meta-dot"></span>
+                <span>Nepal</span>
+                <span class="identity-summary-meta-dot"></span>
+                <span>UTC+5:45</span>
+            </div>
+
+            <div class="identity-summary-links">
+                <a class="identity-summary-link" href="@WebsiteKeys.GitHubProfile" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <Svg Icon="Svg.Icons.Github" SizeClasses="w-4 h-4"/>
+                </a>
+                <a class="identity-summary-link" href="@WebsiteKeys.LinkedIn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <Svg Icon="Svg.Icons.LinkedIn" SizeClasses="w-4 h-4"/>
+                </a>
+                <a class="identity-summary-link" href="@WebsiteKeys.X" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter">
+                    <Svg Icon="Svg.Icons.X" SizeClasses="w-4 h-4"/>
+                </a>
+                <a class="identity-summary-link" href="@WebsiteKeys.DevTo" target="_blank" rel="noopener noreferrer" aria-label="DEV.to">
+                    <span class="text-[0.62rem] font-extrabold tracking-tight">DEV</span>
+                </a>
+            </div>
+        </aside>
+    </div>
+
+    @* Hero proof grid *@
+    <div class="hero-proof-grid mt-12">
+        <div class="hero-proof-card">
+            <span class="hero-proof-meta">What I'm shipping</span>
+            <span class="hero-proof-value">ERP &amp; QMS platforms</span>
+            <span class="hero-proof-label">ASP.NET Core, Blazor, and SQL Server &mdash; backend services and product UI for daily operational use.</span>
+        </div>
+        <div class="hero-proof-card">
+            <span class="hero-proof-meta">Where it runs</span>
+            <span class="hero-proof-value">Azure-hosted services</span>
+            <span class="hero-proof-label">Container Apps, Functions, App Service, with managed data, queues, and storage tuned to the workload.</span>
+        </div>
+        <div class="hero-proof-card">
+            <span class="hero-proof-meta">How it gets there</span>
+            <span class="hero-proof-value">Containers &amp; CI/CD</span>
+            <span class="hero-proof-label">Docker, GitHub Actions, and Azure Pipelines so deployments are routine and recoverable.</span>
+        </div>
+    </div>
+</header>
+
+@* ================ FOUNDATION STRIP ================ *@
+<section class="mt-10">
+    <div class="ak-logo-strip">
+        <div class="ak-logo-strip-inner">
+            <span class="ak-logo-strip-label">Day-to-day stack</span>
+            <ul class="ak-logo-strip-list">
+                @foreach (var item in StackChips)
+                {
+                    <li class="ak-logo-strip-item">
+                        <span class="logo-dot"></span>
+                        <span>@item</span>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</section>
+
+@* ================ FOCUS AREAS ================ *@
+<section class="ak-section">
+    <div class="ak-section-header ak-section-header--center">
+        <span class="ak-kicker-chip">What I focus on</span>
+        <h2 class="ak-section-title">Six places most of my engineering time goes.</h2>
+        <p class="ak-section-subtitle">
+            From API design to data modelling and the delivery pipeline. The same things I do on real, paid client work &mdash; not a wishlist.
+        </p>
+    </div>
+
+    <div class="ak-info-tile-grid ak-info-tile-grid--3 mt-10">
+        @foreach (var area in FocusAreas)
+        {
+            <article class="ak-info-tile">
+                <span class="ak-info-tile-icon @area.IconClass">
+                    @((MarkupString)area.IconSvg)
+                </span>
+                <h3 class="ak-info-tile-title">@area.Title</h3>
+                <p class="ak-info-tile-description">@area.Description</p>
+            </article>
+        }
+    </div>
+</section>
+
+@* ================ FEATURED PROJECT ================ *@
+<section id="work" class="ak-section">
+    <div class="ak-section-header ak-section-header--center">
+        <span class="ak-kicker-chip">Open source &amp; public work</span>
+        <h2 class="ak-section-title">Things I keep open on GitHub.</h2>
+        <p class="ak-section-subtitle">
+            Public repositories, sample apps, and a starter platform &mdash; the parts of my work that get to live in the open.
+        </p>
+    </div>
+
+    <div class="ak-feature-showcase mt-12">
+        <div class="ak-feature-showcase-copy">
+            <span class="ak-feature-showcase-label">Featured &middot; Krafter</span>
+            <h3 class="ak-feature-showcase-title">A modern .NET full-stack starter built like a real product.</h3>
+            <p class="ak-feature-showcase-description">
+                Krafter is a vertical-slice, multi-tenant .NET platform with a Blazor WebAssembly front-end. It's the opinionated starting point I keep reaching for when a new product needs to be honest about architecture, identity, and deployment from day one.
+            </p>
+            <div class="mt-6 flex flex-wrap gap-2">
+                <span class="capability-chip">Vertical slice architecture</span>
+                <span class="capability-chip">Multi-tenant</span>
+                <span class="capability-chip">Blazor WebAssembly</span>
+                <span class="capability-chip">.NET 10</span>
+            </div>
+            <div class="mt-7">
+                <a href="https://github.com/AditiKraft/Krafter" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                    <Svg Icon="Svg.Icons.Github" SizeClasses="w-4 h-4"/>
+                    <span>Open Krafter on GitHub</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="ak-feature-showcase-visual">
+            <figure class="capability-panel">
+                <header>
+                    <span class="capability-panel-eyebrow">Reference architecture</span>
+                    <h3 class="capability-panel-title">A delivery surface that stays inspectable end to end.</h3>
+                </header>
+                <ul class="capability-list">
+                    <li>
+                        <span class="capability-lane">UI</span>
+                        <div>
+                            <strong>Blazor hybrid front-end</strong>
+                            <span>Composable pages, typed clients, feature-aligned folders.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="capability-lane">API</span>
+                        <div>
+                            <strong>Minimal API slices</strong>
+                            <span>Routes, validation, and handlers grouped by feature, not by layer.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="capability-lane">Data</span>
+                        <div>
+                            <strong>Migrations &amp; persistence</strong>
+                            <span>Schema changes are checked in, applied automatically, reviewable.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="capability-lane">Ops</span>
+                        <div>
+                            <strong>Containers &amp; CI/CD</strong>
+                            <span>Docker images and pipelines so production stays a routine event.</span>
+                        </div>
+                    </li>
+                </ul>
+            </figure>
+        </div>
+    </div>
+
+    @* Other projects *@
+    <div class="project-card-grid mt-12">
+        @foreach (var project in OtherProjects)
+        {
+            <article class="project-card">
+                <header class="project-card-header">
+                    <span class="project-card-kind">@project.Kind</span>
+                    <span class="project-card-lang">
+                        <span class="project-card-lang-dot" style="background-color: @project.LanguageColor;"></span>
+                        <span>@project.Language</span>
+                    </span>
+                </header>
+
+                <h3 class="project-card-title">@project.Name</h3>
+                <p class="project-card-description">@project.Description</p>
+
+                <ul class="project-card-tags">
+                    @foreach (var tag in project.Tags)
+                    {
+                        <li class="capability-chip">@tag</li>
+                    }
+                </ul>
+
+                <footer class="project-card-footer">
+                    <a href="@project.Url" target="_blank" rel="noopener noreferrer"
+                       class="project-card-link" aria-label="View @project.Name on GitHub">
+                        <Svg Icon="Svg.Icons.Github" SizeClasses="w-4 h-4"/>
+                        <span>View on GitHub</span>
+                        <span class="project-card-link-arrow" aria-hidden="true">&rarr;</span>
+                    </a>
+                </footer>
+            </article>
+        }
+    </div>
+</section>
+
+@* ================ RESUME ================ *@
+<section id="resume" class="ak-section">
+    <div class="capability-panel">
+        <div class="grid gap-6 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
+            <div>
+                <span class="capability-panel-eyebrow">Resume</span>
+                <h2 class="ak-section-title mt-2 !text-[1.6rem] md:!text-[2rem]">Professional background &amp; technical experience.</h2>
+                <p class="mt-3 max-w-2xl text-foreground-secondary">
+                    A concise PDF overview of my .NET, Azure, backend, data, and delivery work &mdash; written for hiring teams and technical reviewers.
+                </p>
+            </div>
+            <div class="flex flex-wrap gap-3">
+                <a href="@WebsiteKeys.ResumePreviewUrl" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 3h6v6M14 10l7-7M19 14v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h6"/>
+                    </svg>
+                    <span>Open resume</span>
+                </a>
+                <a href="@WebsiteKeys.ResumeDownloadUrl" download="Bipin_Paul_Resume.pdf" class="btn-secondary">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
+                    </svg>
+                    <span>Download PDF</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+@* ================ WRITING ================ *@
+<section class="ak-section">
+    <div class="ak-section-header ak-section-header--center">
+        <span class="ak-kicker-chip">Writing</span>
+        <h2 class="ak-section-title">Recent posts.</h2>
+        <p class="ak-section-subtitle">
+            Practical .NET, Blazor, Azure, and implementation notes &mdash; written from real project work.
+        </p>
+    </div>
+
+    <div class="mt-10">
         <PostsList MaxPosts="3"/>
+    </div>
 
-        <div class="flex justify-center pt-10">
-            <a href="/blog"
-               class="btn-secondary group">
-                <span>View all blog posts</span>
-                <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                </svg>
-            </a>
-        </div>
-    </section>
-</div>
+    <div class="mt-10 flex justify-center">
+        <a href="/blog" class="ak-action-link">
+            <span>View all blog posts</span>
+            <span class="ak-action-link-arrow" aria-hidden="true">&rarr;</span>
+        </a>
+    </div>
+</section>
+
+@code {
+    private static readonly IReadOnlyList<string> StackChips =
+    [
+        ".NET 10",
+        "ASP.NET Core",
+        "Blazor",
+        "C#",
+        "Azure",
+        "Docker",
+        "GitHub Actions",
+        "PostgreSQL",
+        "SQL Server"
+    ];
+
+    private static readonly IReadOnlyList<FocusArea> FocusAreas =
+    [
+        new(
+            "Backend & web apps",
+            "ASP.NET Core, Minimal APIs, Blazor, and EF Core for application logic, APIs, admin workflows, and product-facing web applications.",
+            "ak-info-tile-icon",
+            """<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 10h18"/><path d="M8 21h8"/><path d="M12 18v3"/></svg>"""),
+        new(
+            "Azure cloud",
+            "Container Apps, Functions, App Service, Azure SQL, Storage, Cosmos DB, and Service Bus &mdash; cloud-hosted .NET services with managed data and messaging.",
+            "ak-info-tile-icon",
+            """<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a5 5 0 0 0-1-9.9A7 7 0 0 0 3 12a5 5 0 0 0 5 6h9z"/></svg>"""),
+        new(
+            "Containers & CI/CD",
+            "Docker, GitHub Actions, Azure Pipelines, and Portainer &mdash; repeatable builds, containerized applications, and deployment pipelines that teams trust.",
+            "ak-info-tile-icon ak-info-tile-icon--gold",
+            """<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg>"""),
+        new(
+            "Data",
+            "SQL Server, PostgreSQL, and Azure Cosmos DB &mdash; relational and document data models for business applications, designed alongside the product, not after it.",
+            "ak-info-tile-icon",
+            """<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></svg>"""),
+        new(
+            "Ways of working",
+            "Remote collaboration, Agile delivery, clean architecture, and production support &mdash; the engineering habits around the code that decide how the system actually ages.",
+            "ak-info-tile-icon",
+            """<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>"""),
+        new(
+            "Writing & OSS",
+            "Technical blogging, sample apps, .NET Foundation member &mdash; reusable notes and small open-source utilities pulled out of real project work.",
+            "ak-info-tile-icon ak-info-tile-icon--gold",
+            """<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>""")
+    ];
+
+    private static readonly IReadOnlyList<ProjectItem> OtherProjects =
+    [
+        new(
+            "UrlShortener",
+            "URL shortener built with ASP.NET Core Minimal API, PostgreSQL, Auth0, and Blazor WebAssembly.",
+            "https://github.com/AditiKraft/UrlShortener",
+            ["Minimal API", "PostgreSQL", "Auth0", "Blazor"],
+            "Reference app",
+            "C#",
+            "#0B6B61"),
+        new(
+            "GitWorktreeManager",
+            "Tooling for managing Git worktrees more easily across day-to-day branch work.",
+            "https://github.com/iambipinpaul/GitWorktreeManager",
+            ["Git", "Tooling"],
+            "Developer tool",
+            "C#",
+            "#0B6B61"),
+        new(
+            "ScreenShift",
+            "Open source utility for screen and workspace workflow improvements.",
+            "https://github.com/iambipinpaul/ScreenShift",
+            ["Open source", "Workflow"],
+            "Utility",
+            "C#",
+            "#0B6B61"),
+        new(
+            "BlazorDisplaySpinnerAutomatically",
+            "Blazor sample for showing loading state automatically during API calls.",
+            "https://github.com/iambipinpaul/BlazorDisplaySpinnerAutomatically",
+            ["Blazor", "UX"],
+            "Sample",
+            "C#",
+            "#0B6B61"),
+        new(
+            "Blazor.Seo.Friendly.FlickerFree",
+            "Examples for SEO-friendly, flicker-free Blazor rendering.",
+            "https://github.com/iambipinpaul/Blazor.Seo.Friendly.FlickerFree",
+            ["Blazor", "SEO", "Prerendering"],
+            "Sample",
+            "C#",
+            "#0B6B61")
+    ];
+
+    private sealed record FocusArea(string Title, string Description, string IconClass, string IconSvg);
+
+    private sealed record ProjectItem(
+        string Name,
+        string Description,
+        string Url,
+        IReadOnlyList<string> Tags,
+        string Kind,
+        string Language,
+        string LanguageColor);
+}

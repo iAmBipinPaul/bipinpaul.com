@@ -1,4 +1,4 @@
-Bipin Paul's Blog
+Bipin Paul
 ==========
 
-The code for the [bipinpaul.com.np](http://www.bipinpaul.com.np) website.
+The code for [bipinpaul.com](https://bipinpaul.com), the personal site and blog of Bipin Paul (`iambipinpaul`).

@@ -5,8 +5,8 @@ published: 2025-07-27
 tags: [ blazor, aspnetcore ,ssr, csr, WebAssembly]
 authors:
     - name: "Bipin Paul"
-      gitHubUserName: "iAmBipinPaul"
-      xUserName: "iAmBipinPaul"
+      gitHubUserName: "iambipinpaul"
+      xUserName: "iambipinpaul"
 
 ---
 

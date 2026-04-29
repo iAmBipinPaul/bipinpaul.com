@@ -11,7 +11,7 @@
       "username": "vscode"
     },
      "ghcr.io/iambipinpaul/devcontainer-features/oh-my-posh:1": {
-      "theme": "https://raw.githubusercontent.com/iAmBipinPaul/oh-my-posh/main/oh-my-posh.json"
+      "theme": "https://raw.githubusercontent.com/iambipinpaul/oh-my-posh/main/oh-my-posh.json"
      }
   },
   "containerEnv": {

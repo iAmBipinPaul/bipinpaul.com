@@ -5,15 +5,15 @@ published: 2017-02-15
 tags: [CRUD, ASP.NET Core, Entity Framework Core, MVC, Code First]
 authors:
     - name: "Bipin Paul"
-      gitHubUserName: "iAmBipinPaul"
-      xUserName: "iAmBipinPaul"
+      gitHubUserName: "iambipinpaul"
+      xUserName: "iambipinpaul"
 ---
 
 ## What is this post about?
 
 In this article I am going to explain about how we can perform create , update , read and delete operation in asp.net core mvc using entity framework core.
 
-You guys can download the full source code from Github. [Download Link](https://github.com/iAmBipinPaul/CrudAspNetCore)
+You guys can download the full source code from Github. [Download Link](https://github.com/iambipinpaul/CrudAspNetCore)
 
 
 ### Let’s start ……

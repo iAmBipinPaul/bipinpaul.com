@@ -5,8 +5,8 @@ published: 2024-03-26
 tags: [ssr, Blazor, seo, prerender, prerendering, aspnetcore, webdev, WebAssembly]
 authors:
     - name: "Bipin Paul"
-      gitHubUserName: "iAmBipinPaul"
-      xUserName: "iAmBipinPaul"
+      gitHubUserName: "iambipinpaul"
+      xUserName: "iambipinpaul"
 ---
 
 In this blog post, we will walk through the process of making a Blazor WebAssembly application both SEO-friendly and flicker-free.

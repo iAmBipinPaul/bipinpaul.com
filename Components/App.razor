@@ -7,10 +7,10 @@
     <script>
         (() => {
             const storageKey = 'theme-preference';
-            const themeColors = {
-                light: '#F7F9FC',
-                dark: '#0C1A1C'
-            };
+             const themeColors = {
+                light: '#F4F6F4',
+                dark: '#071A1B'
+             };
             const darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
             const getStoredTheme = () => {
@@ -152,7 +152,7 @@
             window.addEventListener('pageshow', () => applyTheme());
         })();
     </script>
-    <meta id="theme-color-meta" name="theme-color" content="#F7F9FC"/>
+    <meta id="theme-color-meta" name="theme-color" content="#F4F6F4"/>
     <meta name="color-scheme" content="light dark"/>
     <base href="/"/>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">

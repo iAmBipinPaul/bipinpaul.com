@@ -5,8 +5,8 @@ published: 2019-01-14
 tags: [Cake build,Travis CI,AppVeyor,Azure Pipeline,Aspnetcore,Dotnet,Docker]
 authors:
   - name: "Bipin Paul"
-    gitHubUserName: "iAmBipinPaul"
-    xUserName: "iAmBipinPaul"
+    gitHubUserName: "iambipinpaul"
+    xUserName: "iambipinpaul"
 ---  
 When we are working on some open source project we often have to build the same project on multiple CI server and every CI server have theirs  own configuration file  and it doesn't make sense to write the different file to do the same tasks.  
 

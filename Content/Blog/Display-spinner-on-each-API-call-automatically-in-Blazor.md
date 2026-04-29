@@ -5,8 +5,8 @@ published: 2020-01-02
 tags: [Spinner, Blazor, Aspnetcore, Dotnet, webdev]
 authors:
     - name: "Bipin Paul"
-      gitHubUserName: "iAmBipinPaul"
-      xUserName: "iAmBipinPaul"
+      gitHubUserName: "iambipinpaul"
+      xUserName: "iambipinpaul"
 ---
 
 

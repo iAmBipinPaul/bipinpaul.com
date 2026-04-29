@@ -5,8 +5,8 @@ published: 2017-12-29
 tags: [ Microsoft, Freelancing ,Dotnet Core, Aspnetcore, Year In Review]
 authors:
     - name: "Bipin Paul"
-      gitHubUserName: "iAmBipinPaul"
-      xUserName: "iAmBipinPaul"
+      gitHubUserName: "iambipinpaul"
+      xUserName: "iambipinpaul"
 --- 
 
 With new year on the corner, everyone is writing and planning a roadmap for their next year. I have also decided to review 2017 and plan about 2018. Before this, I was not planning and thinking about what to do in the up-coming next year.

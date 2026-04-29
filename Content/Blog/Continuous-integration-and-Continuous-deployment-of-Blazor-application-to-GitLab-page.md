@@ -5,8 +5,8 @@ published: 2018-07-23
 tags: [JavaScript, Blazor, Aspnetcore, Dotnet, Web Hosting]
 authors:
     - name: "Bipin Paul"
-      gitHubUserName: "iAmBipinPaul"
-      xUserName: "iAmBipinPaul"
+      gitHubUserName: "iambipinpaul"
+      xUserName: "iambipinpaul"
 ---
 
 > It only works with blazor 0.5 + version as GitLab uses linux and there was some issue related to copying files from wwwroot
@@ -214,6 +214,6 @@ commit the change and GitLab will trigger the build and after building we should
 
 Feel free to comment and suggests changes .
 
-Full source code on [GitLab](https://gitlab.com/iAmBipinPaul/Blazor.CICD)
+Full source code on [GitLab](https://gitlab.com/iambipinpaul/Blazor.CICD)
 
 Happy Coding!

@@ -5,8 +5,8 @@ published: 2016-02-09
 tags: [Microsoft,Aspnetcore,Csharp,Programming,Web Development]
 authors:
     - name: "Bipin Paul"
-      gitHubUserName: "iAmBipinPaul"
-      xUserName: "iAmBipinPaul"
+      gitHubUserName: "iambipinpaul"
+      xUserName: "iambipinpaul"
 ---
 
 I am just a beginner in the web development ,I did some search and came to know the following things.
