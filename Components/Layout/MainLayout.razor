@@ -33,6 +33,10 @@
                                 <span class="sr-only">x</span>
                                 <Svg Icon="Svg.Icons.X" SizeClasses="w-6 h-6"/>
                             </a>
+                            <a class="footer-social-link" target="_blank" rel="noopener noreferrer" href="@WebsiteKeys.DevTo">
+                                <span class="sr-only">dev.to</span>
+                                <span class="text-[0.7rem] font-extrabold tracking-tight">DEV</span>
+                            </a>
                         </div>
                     </div>
 
@@ -54,3 +58,33 @@
         </div>
     </div>
 </div>
+
+<button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top" title="Back to top">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+</button>
+
+<script>
+    (() => {
+        const btn = document.getElementById('scroll-to-top');
+        if (!btn) return;
+
+        let visible = false;
+
+        const toggle = () => {
+            const shouldShow = window.scrollY > 400;
+            if (shouldShow !== visible) {
+                visible = shouldShow;
+                btn.classList.toggle('scroll-to-top--visible', visible);
+            }
+        };
+
+        btn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        window.addEventListener('scroll', toggle, { passive: true });
+        toggle();
+    })();
+</script>
