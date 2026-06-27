@@ -2,7 +2,7 @@
 title: CRUD operation in ASP.NET core MVC using Entity Framework core code first approach
 lead: In this article I am going to explain about how we can perform create , update , read and delete operation in asp.net core mvc using entity framework core.
 published: 2017-02-15
-tags: [CRUD, ASP.NET Core, Entity Framework Core, MVC, Code First]
+tags: [CRUD, Aspnetcore, Entity Framework Core, MVC, Code First]
 authors:
     - name: "Bipin Paul"
       gitHubUserName: "iambipinpaul"

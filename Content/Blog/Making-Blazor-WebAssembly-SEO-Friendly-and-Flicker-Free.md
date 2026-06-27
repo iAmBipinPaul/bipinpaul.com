@@ -2,7 +2,7 @@
 title: Making Blazor WebAssembly SEO-Friendly and Flicker-Free
 lead: A guide to enhance the SEO and user experience of Blazor WebAssembly applications by implementing bot detection and pre-rendering.
 published: 2024-03-26
-tags: [ssr, Blazor, seo, prerender, prerendering, aspnetcore, webdev, WebAssembly]
+tags: [ssr, Blazor, seo, prerender, prerendering, Aspnetcore, webdev, WebAssembly]
 authors:
     - name: "Bipin Paul"
       gitHubUserName: "iambipinpaul"

@@ -34,11 +34,23 @@ app.UseStaticFiles(new StaticFileOptions
     FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(),
         "Content", "Blog", "media"))
 });
+// Serve blog media at the same path the generated site resolves to (via <base href="/">),
+// so images render in local dev preview exactly as they do in production.
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(),
+        "Content", "Blog", "media")),
+    RequestPath = "/Content/Blog/media"
+});
 
 
 app.UseAntiforgery();
 
 app.MapRazorComponents<App>();
+
+// Fetch live GitHub figures once, before the static generator renders the pages,
+// so the real numbers are baked into the output. Falls back to last-known values.
+await GitHubStats.LoadAsync();
 
 app.UseBlazorStaticGenerator(!app.Environment.IsDevelopment());
 

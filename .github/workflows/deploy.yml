@@ -1,6 +1,11 @@
 on:
   push:
     branches: [ master ]
+  # Rebuild daily so build-time data (e.g. GitHub star counts) stays current
+  # even without a push. 06:00 UTC.
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
 env:
   ASPNETCORE_ENVIRONMENT: Production
   WEBAPP_PATH: ./
@@ -40,7 +45,12 @@ jobs:
 
       - run: rm  ${{ env.WEBAPP_PATH }}Properties/launchSettings.json
       - run: touch ${{ env.WEBAPP_PATH }}/wwwroot/.nojekyll #folder starting with _ are handled as jekyll. This file will prevent that.  
-      - run: dotnet run --project ${{ env.WEBAPP_PATH }}${{env.WEBAPP_CSPROJ}}  --configuration Release
+      - name: Generate static site
+        # Pass the token so build-time GitHub API calls are authenticated
+        # (GitHub-hosted runners share IPs and can hit the unauthenticated rate limit).
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: dotnet run --project ${{ env.WEBAPP_PATH }}${{env.WEBAPP_CSPROJ}}  --configuration Release
       
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@v1
