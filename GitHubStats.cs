@@ -22,7 +22,7 @@ public static class GitHubStats
 
     public static async Task LoadAsync()
     {
-        var stars = await TryGetStarsAsync(KrafterRepo);
+        int? stars = await TryGetStarsAsync(KrafterRepo);
         if (stars is > 0)
         {
             LiveStats.KrafterStars = stars.Value;
@@ -33,22 +33,22 @@ public static class GitHubStats
     {
         try
         {
-            using HttpClient http = new HttpClient { Timeout = TimeSpan.FromSeconds(8) };
+            using HttpClient http = new() { Timeout = TimeSpan.FromSeconds(8) };
             http.DefaultRequestHeaders.UserAgent.ParseAdd("bipinpaul.com-build");
             http.DefaultRequestHeaders.Accept.ParseAdd("application/vnd.github+json");
 
             // Use the CI token when available to lift the unauthenticated rate limit.
-            var token = Environment.GetEnvironmentVariable("GITHUB_TOKEN");
+            string? token = Environment.GetEnvironmentVariable("GITHUB_TOKEN");
             if (!string.IsNullOrWhiteSpace(token))
             {
                 http.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             }
 
-            await using var stream = await http.GetStreamAsync($"https://api.github.com/repos/{repo}");
-            using var doc = await JsonDocument.ParseAsync(stream);
+            await using Stream stream = await http.GetStreamAsync($"https://api.github.com/repos/{repo}");
+            using JsonDocument doc = await JsonDocument.ParseAsync(stream);
 
-            if (doc.RootElement.TryGetProperty("stargazers_count", out var element)
-                && element.TryGetInt32(out var stars))
+            if (doc.RootElement.TryGetProperty("stargazers_count", out JsonElement element)
+                && element.TryGetInt32(out int stars))
             {
                 return stars;
             }
