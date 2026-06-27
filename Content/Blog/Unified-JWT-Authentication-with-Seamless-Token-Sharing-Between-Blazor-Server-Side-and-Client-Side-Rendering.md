@@ -2,7 +2,7 @@
 title: Unified JWT Authentication with Seamless Token Sharing Between Blazor Server-Side and Client-Side Rendering
 lead: Learn how to implement a unified JWT authentication system that allows seamless token sharing between Blazor Server-Side Rendering (SSR) and Client-Side Rendering (CSR) applications.
 published: 2025-07-27
-tags: [ blazor, aspnetcore ,ssr, csr, WebAssembly]
+tags: [ Blazor, Aspnetcore ,ssr, csr, WebAssembly]
 authors:
     - name: "Bipin Paul"
       gitHubUserName: "iambipinpaul"

@@ -3,6 +3,7 @@
 @using BlazorStatic
 @using BlazorStatic.Services
 @using System.Net
+@using System.Globalization
 @inject BlazorStaticContentService<BlogFrontMatter> blazorStaticContentService
 
 @if (TagName == null)
@@ -32,11 +33,22 @@
                         .SelectMany(x => x.Tags)
                         .GroupBy(x => x)
                         .Select(group => new { Tag = group.Key, Count = group.Count() })
-                        .OrderByDescending(x => x.Count);
+                        .OrderByDescending(x => x.Count)
+                        .ToList();
+
+                    var maxCount = tagsWithCount.Count > 0 ? tagsWithCount.Max(x => x.Count) : 1;
+                    var minCount = tagsWithCount.Count > 0 ? tagsWithCount.Min(x => x.Count) : 1;
 
                     foreach (var tagGroup in tagsWithCount)
                     {
-                        <a class="skill-tag text-sm px-4 py-2 font-medium hover:scale-105 transition-all duration-300"
+                        var weight = maxCount == minCount
+                            ? 1.0
+                            : (double)(tagGroup.Count - minCount) / (maxCount - minCount);
+                        var fontSize = (0.82 + weight * 0.55).ToString("0.00", CultureInfo.InvariantCulture);
+                        var isLead = weight >= 0.6;
+
+                        <a class="skill-tag @(isLead ? "skill-tag-primary" : "") font-medium hover:scale-105 transition-all duration-300"
+                           style="font-size: @(fontSize)rem"
                            href="@($"{blazorStaticContentService.Options.Tags.TagsPageUrl}/{tagGroup.Tag.EncodedName}")">
                             @tagGroup.Tag.Name
                             <span class="pill-muted ml-1.5 px-1.5 py-0.5 text-xs">@tagGroup.Count</span>

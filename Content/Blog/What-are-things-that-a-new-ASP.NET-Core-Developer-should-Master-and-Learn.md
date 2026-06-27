@@ -3,7 +3,7 @@
 title: What are things that a new ASP.NET Core Developer should Master and Learn?
 lead: What are things that a new ASP.NET Core Developer should Master and Learn?
 published: 2017-11-18
-tags: [Microsoft, Aspnetcore, Csharp, Dotnet Core, Web Development]
+tags: [Microsoft, Aspnetcore, Csharp, Dotnet, Web Development]
 authors:
     - name: "Bipin Paul"
       gitHubUserName: "iambipinpaul"

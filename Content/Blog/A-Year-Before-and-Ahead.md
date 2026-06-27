@@ -2,7 +2,7 @@
 title: A Year Before and Ahead
 lead: Sample post so you can see how it works
 published: 2017-12-29
-tags: [ Microsoft, Freelancing ,Dotnet Core, Aspnetcore, Year In Review]
+tags: [ Microsoft, Freelancing ,Dotnet, Aspnetcore, Year In Review]
 authors:
     - name: "Bipin Paul"
       gitHubUserName: "iambipinpaul"
