@@ -1,0 +1,14 @@
+<Project>
+
+  <!-- StyleCop.Analyzers: adds the structural member-ordering rules that
+       dotnet format / Roslyn do not provide. Individual rule severities are
+       tuned in .editorconfig (most categories off; only ordering re-enabled).
+       PrivateAssets=all keeps it a build-time-only dependency. -->
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>
