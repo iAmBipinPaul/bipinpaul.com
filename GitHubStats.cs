@@ -33,7 +33,7 @@ public static class GitHubStats
     {
         try
         {
-            using var http = new HttpClient { Timeout = TimeSpan.FromSeconds(8) };
+            using HttpClient http = new HttpClient { Timeout = TimeSpan.FromSeconds(8) };
             http.DefaultRequestHeaders.UserAgent.ParseAdd("bipinpaul.com-build");
             http.DefaultRequestHeaders.Accept.ParseAdd("application/vnd.github+json");
 
