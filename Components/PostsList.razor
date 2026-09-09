@@ -4,14 +4,14 @@
 @inject BlazorStaticContentService<BlogFrontMatter> blazorStaticContentService
 @inject BlazorStaticService blazorStaticService
 
-<ul class="space-y-6">
+<ul class="space-y-4 sm:space-y-6">
     @{ var index = 0; }
     @foreach (var post in posts)
     {
         var firstImageUrl = ExtractFirstImageUrl(post.HtmlContent);
         var delay = index * 100;
         <li class="group post-reveal" style="animation-delay: @(delay)ms">
-            <article class="glass-card post-list-card hover-lift p-6">
+            <article class="glass-card post-list-card hover-lift p-5 sm:p-6">
                 <!-- Gradient accent on hover -->
                 <div class="post-card-accent"></div>
 

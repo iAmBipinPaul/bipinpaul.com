@@ -863,12 +863,14 @@
 
     .page-header {
         margin-inline: auto;
-        max-width: 48rem;
+        max-width: 44rem;
         text-align: center;
     }
 
     .page-header .page-title {
-        font-size: clamp(2.5rem, 6vw, 4.25rem);
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        line-height: 1.15;
+        letter-spacing: -0.01em;
     }
 
     .status-card {
@@ -889,13 +891,20 @@
         color: var(--color-error);
     }
 
+    /* Professional reading width: ~48rem measure for body copy */
     .article-shell {
         margin-inline: auto;
-        max-width: 100%;
+        max-width: 48rem;
     }
 
     .article-header {
-        padding: 1.75rem;
+        padding: 1.25rem;
+    }
+
+    @media (min-width: 640px) {
+        .article-header {
+            padding: 1.75rem;
+        }
     }
 
     .article-actions,
@@ -1414,9 +1423,15 @@
         line-height: 1.5;
     }
 
-    /* Section header (centered, editorial) */
+    /* Consistent section rhythm: 32px mobile / 56px desktop */
     .ak-section {
-        padding-block: clamp(2.5rem, 5vw, 5rem);
+        padding-block: 2rem;
+    }
+
+    @media (min-width: 640px) {
+        .ak-section {
+            padding-block: 3.5rem;
+        }
     }
 
     .ak-section-header {
