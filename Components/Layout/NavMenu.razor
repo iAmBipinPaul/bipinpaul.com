@@ -64,10 +64,19 @@
     </div>
 </header>
 
-<!-- Mobile Menu -->
+<!-- Mobile Menu: mirrors the header bar so brand context is kept -->
 <div id="mobile-menu" class="mobile-menu-overlay hidden sm:hidden">
-    <div class="mx-auto min-h-screen w-full max-w-3xl px-4 pt-4 sm:max-w-5xl sm:px-6 md:max-w-6xl lg:max-w-7xl lg:px-8 2xl:max-w-[92rem]">
-        <div class="flex h-16 items-center justify-end">
+    <div class="mx-auto min-h-screen w-full max-w-3xl px-4 sm:max-w-5xl sm:px-6 md:max-w-6xl lg:max-w-7xl lg:px-8 2xl:max-w-[92rem]">
+        <div class="flex h-16 items-center justify-between gap-3">
+            <a href="" class="inline-flex min-w-0 items-center gap-2.5" aria-label="Bipin Paul — home">
+                <span class="brand-mark shrink-0">
+                    <img src="/images/bipinpaul.jpeg" alt="Bipin Paul" class="brand-mark-image"/>
+                </span>
+                <span class="min-w-0 leading-tight">
+                    <span class="block truncate text-sm font-semibold text-foreground">@WebsiteKeys.Title</span>
+                    <span class="hidden min-[380px]:block truncate text-xs text-foreground-muted">@WebsiteKeys.Username</span>
+                </span>
+            </a>
             <button id="close-mobile-menu-button" class="nav-icon-link" aria-label="Close menu">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-current">
                     <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -104,15 +113,29 @@
     </div>
 </div>
 <script>
-    const toggleMobileMenu = () => {
+    const setMobileMenu = (open) => {
         const menu = document.querySelector('#mobile-menu');
         const btn = document.querySelector('#toggle-button');
-        const isHidden = menu.classList.toggle('hidden');
-        btn.setAttribute('aria-expanded', !isHidden);
+        if (!menu || !btn) return;
+        menu.classList.toggle('hidden', !open);
+        btn.setAttribute('aria-expanded', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+    };
+
+    const toggleMobileMenu = () => {
+        const menu = document.querySelector('#mobile-menu');
+        setMobileMenu(menu.classList.contains('hidden'));
     };
 
     document.querySelector('#toggle-button').addEventListener('click', toggleMobileMenu);
-    document.querySelector('#close-mobile-menu-button').addEventListener('click', toggleMobileMenu);
+    document.querySelector('#close-mobile-menu-button').addEventListener('click', () => setMobileMenu(false));
+    // Auto-close on navigate (Blazor client-side routing doesn't reload the page)
+    document.querySelector('#mobile-menu').addEventListener('click', (event) => {
+        if (event.target.closest('a')) setMobileMenu(false);
+    });
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') setMobileMenu(false);
+    });
 </script>
 
 
