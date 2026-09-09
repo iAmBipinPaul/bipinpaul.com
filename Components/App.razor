@@ -8,8 +8,8 @@
         (() => {
             const storageKey = 'theme-preference';
              const themeColors = {
-                light: '#F4F6F4',
-                dark: '#071A1B'
+                light: '#F8FAFC',
+                dark: '#090E18'
              };
             const darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
@@ -152,7 +152,7 @@
             window.addEventListener('pageshow', () => applyTheme());
         })();
     </script>
-    <meta id="theme-color-meta" name="theme-color" content="#F4F6F4"/>
+    <meta id="theme-color-meta" name="theme-color" content="#F8FAFC"/>
     <meta name="color-scheme" content="light dark"/>
     <base href="/"/>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -161,7 +161,7 @@
     <link rel="manifest" href="/site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Load local Tailwind CSS instead of CDN -->
     <link rel="stylesheet" href="app.min.css"/>
 

@@ -1,12 +1,12 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="min-h-screen site-shell">
+    <NavMenu/>
+
     <div class="mx-auto w-full max-w-3xl px-4 sm:max-w-5xl sm:px-6 md:max-w-6xl lg:max-w-7xl lg:px-8 2xl:max-w-[92rem] relative z-10">
-        <div class="flex min-h-screen flex-col justify-between">
+        <div class="flex min-h-[calc(100vh-4rem)] flex-col justify-between">
 
-            <NavMenu/>
-
-            <main class="mb-auto">
+            <main class="mb-auto pt-6 sm:pt-8">
                 @Body
             </main>
 
