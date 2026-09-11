@@ -7,9 +7,11 @@
     "watch-css": "tailwindcss -i ./wwwroot/app.css -o ./wwwroot/app.min.css --watch"
   },
   "devDependencies": {
-    "tailwindcss": "^3.4.0",
-    "postcss": "^8.4.0",
-    "autoprefixer": "^10.4.0",
-    "@tailwindcss/typography": "^0.5.0"
+    "@tailwindcss/cli": "^4.3.3",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@tailwindcss/typography": "^0.5.20",
+    "autoprefixer": "^10.5.6",
+    "postcss": "^8.5.28",
+    "tailwindcss": "^4.3.3"
   }
 }
